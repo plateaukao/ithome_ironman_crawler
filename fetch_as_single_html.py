@@ -1,5 +1,6 @@
 import os
 import sys
+import hashlib
 from bs4 import BeautifulSoup
 import requests
 
@@ -36,19 +37,28 @@ def process_page(folder, url):
         article_url = title["href"].strip()
         file_path = saveArticle(folder, title_text, article_url)
         articles[title_text] = file_path
+        print("Porcessing " + title_text)
 
     return articles
 
-def create_combined_html(folder, articles):
+def create_combined_html(folder, main_title, articles):
     combined_html_path = os.path.join(folder, "combined.html")
+    first_article_path = next(iter(articles.values()))
+    with open(first_article_path, 'r', encoding='utf-8') as first_article_file:
+        soup = BeautifulSoup(first_article_file, "html.parser")
+        head_content = soup.find("head")
+        head_content.title.decompose()
+        head_html = str(head_content) if head_content else "<head><title>Combined Articles</title></head>"
+
     with open(combined_html_path, "w", encoding="utf-8") as f:
         # Write the beginning of the HTML file
-        f.write("<html><head><title>Combined Articles</title></head><body>")
-        f.write("<h1>Table of Contents</h1><ul>")
+        f.write(f"<!DOCTYPE html><html>{head_html}<title>{main_title}</title><body>")
+        f.write("<h1 id=toc>Table of Contents</h1><ul>")
 
         # TOC
         for title, path in articles.items():
-            f.write(f'<li><a href="#{title}">{title}</a></li>')
+            title_hash = hashlib.md5(title.encode()).hexdigest()
+            f.write(f'<li><a href="#{title_hash}">{title}</a></li>')
 
         f.write("</ul>")
 
@@ -56,8 +66,13 @@ def create_combined_html(folder, articles):
         for title, path in articles.items():
             with open(path, 'r', encoding='utf-8') as article_file:
                 article_content = article_file.read()
-                f.write(f'<h2 id="{title}">{title}</h2>')
-                f.write(article_content)
+                html = BeautifulSoup(article_content, "html.parser")
+                content = html.find("div", {"class":"qa-panel__content"})
+                if content:
+                    title_hash = hashlib.md5(title.encode()).hexdigest()
+                    f.write(f'<a name="{title_hash}"></a>')
+                    f.write('<a href="#toc">Back to TOC</a>')
+                    f.write(str(content))
 
         # End of the HTML file
         f.write("</body></html>")
@@ -74,5 +89,5 @@ if __name__ == "__main__":
             url_with_page = base_url + f"?page={page}"
             articles = process_page(folder, url_with_page)
             all_articles.update(articles)
-        create_combined_html(folder, all_articles)
+        create_combined_html(folder, title, all_articles)
 
