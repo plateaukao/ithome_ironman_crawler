@@ -69,6 +69,16 @@ def create_combined_html(folder, main_title, articles):
                 html = BeautifulSoup(article_content, "html.parser")
                 content = html.find("div", {"class":"qa-panel__content"})
                 if content:
+                    content['style'] = f'padding-left: 0;'
+
+                    header = content.find("div", {"class":"qa-header"})
+                    for child in header.find_all(recursive=False):
+                        if 'qa-header__title' not in child.get('class', []):
+                            child.decompose()
+
+                    action_bar = content.find("div", {"class":"qa-action"})
+                    action_bar.decompose()
+
                     title_hash = hashlib.md5(title.encode()).hexdigest()
                     f.write(f'<a name="{title_hash}"></a>')
                     f.write('<a href="#toc">Back to TOC</a>')
