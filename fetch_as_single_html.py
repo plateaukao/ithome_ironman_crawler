@@ -4,6 +4,7 @@ import hashlib
 from bs4 import BeautifulSoup
 import requests
 import webbrowser
+import urllib.parse
 
 
 def saveArticle(folder, title, url):
@@ -107,5 +108,6 @@ if __name__ == "__main__":
 
 	# Open the combined HTML file in the default web browser
         combined_html_path = os.path.join(folder, "combined.html")
-        webbrowser.open('file://' + os.path.realpath(combined_html_path))
+        print(combined_html_path)
+        webbrowser.open('file://' + urllib.parse.quote(os.path.realpath(combined_html_path)))
 
