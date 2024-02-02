@@ -3,6 +3,8 @@ import sys
 import hashlib
 from bs4 import BeautifulSoup
 import requests
+import webbrowser
+
 
 def saveArticle(folder, title, url):
     file_path = os.path.join(folder, title.replace("/", "_") + ".html")
@@ -53,14 +55,14 @@ def create_combined_html(folder, main_title, articles):
     with open(combined_html_path, "w", encoding="utf-8") as f:
         # Write the beginning of the HTML file
         f.write(f"<!DOCTYPE html><html>{head_html}<title>{main_title}</title><body>")
-        f.write("<h1 id=toc>Table of Contents</h1><ul>")
+        #f.write("<h1 id=toc>Table of Contents</h1><ul>")
 
         # TOC
         for title, path in articles.items():
             title_hash = hashlib.md5(title.encode()).hexdigest()
-            f.write(f'<li><a href="#{title_hash}">{title}</a></li>')
+            #f.write(f'<li><a href="#{title_hash}">{title}</a></li>')
 
-        f.write("</ul>")
+        #f.write("</ul>")
 
         # Article contents
         for title, path in articles.items():
@@ -75,13 +77,15 @@ def create_combined_html(folder, main_title, articles):
                     for child in header.find_all(recursive=False):
                         if 'qa-header__title' not in child.get('class', []):
                             child.decompose()
+                    
+                    header_title = content.find(class_="qa-header__title")
+                    title_hash = hashlib.md5(title.encode()).hexdigest()
+                    anchor = soup.new_tag("a", attrs={"name": title_hash})
+                    header_title.insert(0, anchor)
 
                     action_bar = content.find("div", {"class":"qa-action"})
                     action_bar.decompose()
 
-                    title_hash = hashlib.md5(title.encode()).hexdigest()
-                    f.write(f'<a name="{title_hash}"></a>')
-                    f.write('<a href="#toc">Back to TOC</a>')
                     f.write(str(content))
 
         # End of the HTML file
@@ -100,4 +104,8 @@ if __name__ == "__main__":
             articles = process_page(folder, url_with_page)
             all_articles.update(articles)
         create_combined_html(folder, title, all_articles)
+
+	# Open the combined HTML file in the default web browser
+        combined_html_path = os.path.join(folder, "combined.html")
+        webbrowser.open('file://' + os.path.realpath(combined_html_path))
 
