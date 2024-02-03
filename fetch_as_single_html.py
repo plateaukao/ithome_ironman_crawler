@@ -116,5 +116,8 @@ if __name__ == "__main__":
 	# Open the combined HTML file in the default web browser
         combined_html_path = os.path.join(folder, "combined.html")
         print(combined_html_path)
-        webbrowser.open('file://' + urllib.parse.quote(os.path.realpath(combined_html_path)))
+        if (sys.platform == 'win32'):
+            webbrowser.open('file://' + os.path.realpath(combined_html_path))
+        else:
+            webbrowser.open('file://' + urllib.parse.quote(os.path.realpath(combined_html_path)))
 
