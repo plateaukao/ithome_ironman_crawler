@@ -2,8 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import sys
+import re
 
 def saveArticle(folder, title, url):
+    invalidstr = r"[\/\\\:\*\?\"\<\>\|]"
+    title = re.sub(invalidstr, "_", title)
+    print("title: " + title)
     file_path = os.path.join(folder, title.replace("/", "_") + ".html")
     with open(file_path, "w", encoding="utf-8") as f:
         response = requests.get(url, headers={"user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"})
@@ -12,6 +16,8 @@ def saveArticle(folder, title, url):
 
 def createFolder(title):
     folder_name = title.replace("/", "_")
+    invalidstr = r"[\/\\\:\*\?\"\<\>\|]"
+    folder_name = re.sub(invalidstr, "_", folder_name)
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
     return folder_name
