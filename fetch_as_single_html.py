@@ -75,6 +75,7 @@ def create_combined_html(folder, main_title, articles):
         for title, path in articles.items():
             with open(path, 'r', encoding='utf-8') as article_file:
                 article_content = article_file.read()
+                article_content = article_content.replace("src=\"/images/","src=\"https://ithelp.ithome.com.tw/images/")
                 html = BeautifulSoup(article_content, "html.parser")
                 content = html.find("div", {"class":"qa-panel__content"})
                 if content:
