@@ -45,7 +45,7 @@ def process_page(folder, url):
         article_url = title["href"].strip()
         file_path = saveArticle(folder, title_text, article_url)
         articles[title_text] = file_path
-        print("Porcessing " + title_text)
+        print("Processing " + title_text)
 
     return articles
 
