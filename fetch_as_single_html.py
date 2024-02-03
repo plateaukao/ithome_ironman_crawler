@@ -60,6 +60,7 @@ def create_combined_html(folder, main_title, articles):
 
     with open(combined_html_path, "w", encoding="utf-8") as f:
         # Write the beginning of the HTML file
+        head_html = head_html.replace("link href=\"//","link href=\"https://")
         f.write(f"<!DOCTYPE html><html>{head_html}<title>{main_title}</title><body>")
         #f.write("<h1 id=toc>Table of Contents</h1><ul>")
 
