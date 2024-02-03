@@ -5,9 +5,12 @@ from bs4 import BeautifulSoup
 import requests
 import webbrowser
 import urllib.parse
-
+import re
 
 def saveArticle(folder, title, url):
+    invalidstr = r"[\/\\\:\*\?\"\<\>\|]"
+    title = re.sub(invalidstr, "_", title)
+    print("title: " + title)
     file_path = os.path.join(folder, title.replace("/", "_") + ".html")
     with open(file_path, "w", encoding="utf-8") as f:
         response = requests.get(url, headers={"user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"})
@@ -16,6 +19,8 @@ def saveArticle(folder, title, url):
 
 def createFolder(title):
     folder_name = title.replace("/", "_")
+    invalidstr = r"[\/\\\:\*\?\"\<\>\|]"
+    folder_name = re.sub(invalidstr, "_", folder_name)
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
     return folder_name
@@ -40,7 +45,7 @@ def process_page(folder, url):
         article_url = title["href"].strip()
         file_path = saveArticle(folder, title_text, article_url)
         articles[title_text] = file_path
-        print("Porcessing " + title_text)
+        print("Processing " + title_text)
 
     return articles
 
@@ -55,6 +60,7 @@ def create_combined_html(folder, main_title, articles):
 
     with open(combined_html_path, "w", encoding="utf-8") as f:
         # Write the beginning of the HTML file
+        head_html = head_html.replace("link href=\"//","link href=\"https://")
         f.write(f"<!DOCTYPE html><html>{head_html}<title>{main_title}</title><body>")
         #f.write("<h1 id=toc>Table of Contents</h1><ul>")
 
@@ -69,6 +75,7 @@ def create_combined_html(folder, main_title, articles):
         for title, path in articles.items():
             with open(path, 'r', encoding='utf-8') as article_file:
                 article_content = article_file.read()
+                article_content = article_content.replace("src=\"/images/","src=\"https://ithelp.ithome.com.tw/images/")
                 html = BeautifulSoup(article_content, "html.parser")
                 content = html.find("div", {"class":"qa-panel__content"})
                 if content:
@@ -109,5 +116,8 @@ if __name__ == "__main__":
 	# Open the combined HTML file in the default web browser
         combined_html_path = os.path.join(folder, "combined.html")
         print(combined_html_path)
-        webbrowser.open('file://' + urllib.parse.quote(os.path.realpath(combined_html_path)))
+        if (sys.platform == 'win32'):
+            webbrowser.open('file://' + os.path.realpath(combined_html_path))
+        else:
+            webbrowser.open('file://' + urllib.parse.quote(os.path.realpath(combined_html_path)))
 
