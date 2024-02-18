@@ -9,8 +9,10 @@ import urllib.parse
 from urllib.parse import urlparse, parse_qs
 import re
 import subprocess
+import shutil
 
 calibre_convert_path = "/Applications/calibre.app/Contents/MacOS/ebook-convert"
+local_folder = 'local_resources'
 
 def getArticleHtml(url):
     response = requests.get(url, headers={"user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"})
@@ -134,8 +136,6 @@ def save_data_uri_to_file(data_uri, output_folder):
     return file_name
 
 def extract_css_data_text():
-    # 設定本地文件夾路徑
-    local_folder = 'local_resources'
     # 確保本地文件夾存在
     if not os.path.exists(local_folder):
         os.makedirs(local_folder)
@@ -211,6 +211,12 @@ if __name__ == "__main__":
 
         # generate epub
         generate_epub_file(title, sys.argv[2])
+
+        # remove temp file and folder
+        if os.path.exists(local_folder):
+            shutil.rmtree(local_folder)
+        os.remove("combined.html")
+        os.remove("complete_content.html")
 
 
 
