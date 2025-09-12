@@ -93,7 +93,7 @@ def saveCompleteHtml():
     command = "monolith"
     input_file = "combined.html"
     output_file = "complete_content.html"
-    options = ["-I", "-o", output_file]
+    options = ["-I", "-j", "-o", output_file]
 
     # 展開用戶家目錄路徑
     input_file_expanded = subprocess.check_output(['echo', input_file], universal_newlines=True).strip()
