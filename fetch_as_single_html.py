@@ -4,19 +4,41 @@ import sys
 import hashlib
 from bs4 import BeautifulSoup
 import requests
-import webbrowser
-import urllib.parse
-from urllib.parse import urlparse, parse_qs
 import re
-import subprocess
 import shutil
+import concurrent.futures
+from urllib.parse import urljoin, urlparse
 
 calibre_convert_path = "/Applications/calibre.app/Contents/MacOS/ebook-convert"
 local_folder = 'local_resources'
 
-def getArticleHtml(url):
-    response = requests.get(url, headers={"user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"})
-    return response.text
+# Session for connection pooling
+session = requests.Session()
+adapter = requests.adapters.HTTPAdapter(pool_connections=100, pool_maxsize=100)
+session.mount('http://', adapter)
+session.mount('https://', adapter)
+
+HEADERS = {
+    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
+}
+
+def get_url_content(url):
+    try:
+        response = session.get(url, headers=HEADERS, timeout=10)
+        response.raise_for_status()
+        return response.text
+    except Exception as e:
+        print(f"Error fetching {url}: {e}")
+        return None
+
+def get_resource(url):
+    try:
+        response = session.get(url, headers=HEADERS, timeout=10)
+        response.raise_for_status()
+        return response.content
+    except Exception as e:
+        print(f"Error downloading resource {url}: {e}")
+        return None
 
 def createFolder(title):
     folder_name = title.replace("/", "_")
@@ -27,151 +49,100 @@ def createFolder(title):
     return folder_name
 
 def extractTitle(url):
-    response = requests.get(url, headers={"user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"})
-    html = BeautifulSoup(response.text, "html.parser")
-    title_tag = html.find("h3", {"class":"qa-list__title"})
+    html = get_url_content(url)
+    if not html:
+        return "Unknown_Title"
+    soup = BeautifulSoup(html, "html.parser")
+    title_tag = soup.find("h3", {"class": "qa-list__title--ironman"})
     if title_tag:
-        return title_tag.get_text(strip=True)
+        return title_tag.get_text(strip=True).replace("系列", "").strip()
     return "Unknown_Title"
 
-def process_page(url):
-    articles = {}
-    response = requests.get(url, headers={"user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"})
-    html = BeautifulSoup(response.text, "html.parser")
-    article_divs = html.find_all("div", {"class":"qa-list"})
+def get_article_links_from_page(url):
+    links = []
+    html = get_url_content(url)
+    if not html:
+        return links
+    
+    soup = BeautifulSoup(html, "html.parser")
+    article_divs = soup.find_all("div", {"class": "qa-list"})
 
     for art in article_divs:
-        title = art.find("a", {"class":"qa-list__title-link"})  # 標題名稱
-        title_text = title.text.strip()
-        article_url = title["href"].strip()
-        articleHtml = getArticleHtml(article_url)
-        articles[title_text] = articleHtml
-        print("Processing " + title_text)
+        title_tag = art.find("a", {"class": "qa-list__title-link"})
+        if title_tag:
+            title_text = title_tag.text.strip()
+            article_url = title_tag["href"].strip()
+            links.append((title_text, article_url))
+    
+    return links
 
-    return articles
-
-def create_combined_html(main_title, articles):
-    first_article_content = next(iter(articles.values()))
-    soup = BeautifulSoup(first_article_content, "html.parser")
-    head_content = soup.find("head")
-    head_content.title.decompose()
-    head_html = str(head_content) if head_content else "<head><title>Combined Articles</title></head>"
-
-    with open("combined.html", "w", encoding="utf-8") as f:
-        # Write the beginning of the HTML file
-        head_html = head_html.replace("link href=\"//","link href=\"https://")
-        f.write(f"<!DOCTYPE html><html>{head_html}<title>{main_title}</title><body>")
-
-        # Article contents
-        for title, article_content in articles.items():
-            article_content = article_content.replace("src=\"/images/","src=\"https://ithelp.ithome.com.tw/images/")
-            html = BeautifulSoup(article_content, "html.parser")
-            content = html.find("div", {"class":"qa-panel__content"})
-            if content:
-                content['style'] = f'padding-left: 0;'
-
-                header = content.find("div", {"class":"qa-header"})
-                for child in header.find_all(recursive=False):
-                    if 'qa-header__title' not in child.get('class', []):
-                        child.decompose()
-                
-                header_title = content.find(class_="qa-header__title")
+def process_article_content(title, url):
+    print(f"Fetching article: {title}")
+    html_content = get_url_content(url)
+    if not html_content:
+        return title, None
+    
+    # Pre-process content to isolate the article body
+    soup = BeautifulSoup(html_content, "html.parser")
+    content = soup.find("div", {"class": "qa-panel__content"})
+    
+    if content:
+        # Cleanup header
+        header = content.find("div", {"class": "qa-header"})
+        if header:
+            for child in header.find_all(recursive=False):
+                if 'qa-header__title' not in child.get('class', []):
+                    child.decompose()
+            
+            header_title = content.find(class_="qa-header__title")
+            if header_title:
                 title_hash = hashlib.md5(title.encode()).hexdigest()
                 anchor = soup.new_tag("a", attrs={"name": title_hash})
                 header_title.insert(0, anchor)
 
-                action_bar = content.find("div", {"class":"qa-action"})
-                action_bar.decompose()
-
-                f.write(str(content))
-
-        # End of the HTML file
-        f.write("</body></html>")
-
-def saveCompleteHtml():
-    # 定義命令和參數
-    command = "monolith"
-    input_file = "combined.html"
-    output_file = "complete_content.html"
-    options = ["-I", "-j", "-o", output_file]
-
-    # 展開用戶家目錄路徑
-    input_file_expanded = subprocess.check_output(['echo', input_file], universal_newlines=True).strip()
-
-    # 組合命令
-    full_command = [command, input_file_expanded] + options
-
-    # 運行命令
-    try:
-        subprocess.run(full_command, check=True)
-        print("命令成功運行，輸出文件已保存到:", output_file)
-    except subprocess.CalledProcessError as e:
-        print("運行命令時出錯:", e)
-
-def save_data_uri_to_file(data_uri, output_folder):
-    # 解析data URI
-    header, encoded = data_uri.split(',', 1)
-    data_type = header.split(';')[0].split(':')[1]
-    file_extension = data_type.split('/')[1]  # 假設從MIME類型獲取文件擴展名
-    if 'base64' in header:
-        data = base64.b64decode(encoded)
-    else:
-        data = encoded
-
-    # 創建文件名
-    file_name = f"resource.{file_extension}"
-    file_path = os.path.join(output_folder, file_name)
-
-    # 確保文件名唯一
-    counter = 1
-    while os.path.exists(file_path):
-        file_name = f"resource_{counter}.{file_extension}"
-        file_path = os.path.join(output_folder, file_name)
-        counter += 1
-
-    # 寫入文件
-    with open(file_path, 'wb') as file:
-        file.write(data)
+        # Remove action bar
+        action_bar = content.find("div", {"class": "qa-action"})
+        if action_bar:
+            action_bar.decompose()
+        
+        content['style'] = 'padding-left: 0;'
+        return title, str(content)
     
-    return file_name
+    return title, None
 
-def extract_css_data_text():
-    # 確保本地文件夾存在
-    if not os.path.exists(local_folder):
-        os.makedirs(local_folder)
+def download_and_replace_resources(html_content, base_url):
+    soup = BeautifulSoup(html_content, "html.parser")
+    resources_to_download = {} # url -> filename
 
+    # Find images
+    for img in soup.find_all("img"):
+        src = img.get("src")
+        if src:
+            abs_url = urljoin(base_url, src)
+            filename = hashlib.md5(abs_url.encode()).hexdigest() + os.path.splitext(urlparse(abs_url).path)[1]
+            if not filename.endswith(('.jpg', '.png', '.gif', '.jpeg', '.svg', '.webp')):
+                 filename += ".jpg" # Default fallback
+            resources_to_download[abs_url] = filename
+            img['src'] = f"{local_folder}/{filename}"
 
-    html_doc = open("complete_content.html", "r", encoding="utf-8").read() 
-    soup = BeautifulSoup(html_doc, 'html.parser')
-    # 處理<link>標籤
-    for link in soup.find_all('link', href=True):
-        if link['href'].startswith('data:'):
-            file_name = save_data_uri_to_file(link['href'], local_folder)
-            link['href'] = os.path.join(local_folder, file_name)
+    # Find CSS (if we were preserving full head, but we are stripping most. 
+    # However, if there are inline styles or other assets, we might need them.
+    # The original script focused mostly on images for the content part)
+    
+    return str(soup), resources_to_download
 
-    # 處理<style>標籤中的data URI
-    for style in soup.find_all('style'):
-        if 'data:' in style.string:
-            # 這裡的實現可能需要根據實際情況進行調整，因為CSS中可能含有多個data URI
-            # 範例僅針對單一情況進行處理
-            data_uris = [uri for uri in style.string.split('url(') if 'data:' in uri]
-            for data_uri in data_uris:
-                uri_content = data_uri.split(')')[0]  # 獲取data URI部分
-                file_name = save_data_uri_to_file(uri_content, local_folder)
-                # 更新style標籤中的內容
-                style.string = style.string.replace(uri_content, os.path.join(local_folder, file_name))
-
-    # 更新後的HTML
-    updated_html = str(soup)
-    with open("complete_content.html", "w", encoding="utf-8") as f:
-        # Write the beginning of the HTML file
-        f.write(updated_html)
+def download_asset(url, filename, output_folder):
+    content = get_resource(url)
+    if content:
+        path = os.path.join(output_folder, filename)
+        with open(path, "wb") as f:
+            f.write(content)
+        # print(f"Downloaded {filename}")
 
 def generate_epub_file(title, output_file_name):
-    # 定義命令和參數
-    command = calibre_convert_path  # 如果這是Calibre的ebook-convert命令，請確保使用正確的命令名稱，如 "ebook-convert"
+    command = calibre_convert_path
     input_file = "complete_content.html"
-    output_file = "output.epub" if output_file_name == None else output_file_name
+    output_file = "output.epub" if output_file_name is None else output_file_name
 
     options = [
         "--level1-toc", "//h:h2[@class]",
@@ -182,41 +153,114 @@ def generate_epub_file(title, output_file_name):
         "--flow-size", "10240"
     ]
 
-    # 組合命令
     full_command = [command, input_file, output_file] + options
 
-    # 運行命令
     try:
         subprocess.run(full_command, check=True)
-        print("命令成功運行，EPUB文件已生成:", output_file)
+        print("EPUB generated:", output_file)
     except subprocess.CalledProcessError as e:
-        print("運行命令時出錯:", e)
+        print("Error generating EPUB:", e)
+    except FileNotFoundError:
+        print(f"Error: Calibre ebook-convert not found at {command}")
+import subprocess
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python3 fetch_as_single_html.py <URL(exclude page param)> [output_filename]")
+        return
+
+    base_url = sys.argv[1]
+    output_filename = sys.argv[2] if len(sys.argv) > 2 else None
+    
+    # 1. Get Title
+    print("Extracting Series Title...")
+    title = extractTitle(base_url + "?page=1")
+    print(f"Series Title: {title}")
+
+    # 2. Get all article links (Pages 1-4)
+    # Note: Currently hardcoded 1-4 as per original script. 
+    # Could be dynamic, but sticking to original logic for finding pages.
+    all_links = []
+    print("Collecting article links...")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+        future_to_page = {executor.submit(get_article_links_from_page, f"{base_url}?page={page}"): page for page in range(1, 6)} # Increased to 5 just in case
+        for future in concurrent.futures.as_completed(future_to_page):
+            links = future.result()
+            all_links.extend(links)
+    
+    # Deduplicate while preserving order (if logic allows) or just use dict
+    # But usually order matters for books. 
+    # Since we fetched in parallel, order might be scrambled. We should probably sort or fetch sequentially for pages.
+    # To keep simple and correct: re-fetch pages sequentially or handle sorting.
+    # For now, let's just re-sort based on something if needed? 
+    # Actually, the original script looped 1 to 5 sequentially. 
+    # Let's fix the link collection to be ordered correctly.
+    
+    all_links = []
+    for page in range(1, 5):
+        url_with_page = base_url + f"?page={page}"
+        print(f"Scanning page {page}...")
+        links = get_article_links_from_page(url_with_page)
+        all_links.extend(links)
+
+    print(f"Found {len(all_links)} articles.")
+
+    # 3. Fetch Article Content in Parallel
+    articles_map = {} # title -> content
+    print("Downloading articles in parallel...")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        future_to_title = {executor.submit(process_article_content, title, url): title for title, url in all_links}
+        for future in concurrent.futures.as_completed(future_to_title):
+            t, content = future.result()
+            if content:
+                articles_map[t] = content
+            else:
+                print(f"Failed to fetch content for {t}")
+
+    # 4. Process Resources and Rebuild HTML
+    print("Processing resources...")
+    if not os.path.exists(local_folder):
+        os.makedirs(local_folder)
+        
+    final_articles_html = []
+    all_resources = {} # url -> filename
+
+    # We want to maintain original order
+    for article_title, _ in all_links:
+        if article_title in articles_map:
+            content = articles_map[article_title]
+            # Replace resources
+            new_content, res = download_and_replace_resources(content, "https://ithelp.ithome.com.tw") # Base URL prediction
+            final_articles_html.append(new_content)
+            all_resources.update(res)
+
+    # 5. Download Resources in Parallel
+    print(f"Downloading {len(all_resources)} images/resources...")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+        futures = [executor.submit(download_asset, url, fname, local_folder) for url, fname in all_resources.items()]
+        concurrent.futures.wait(futures)
+
+    # 6. Create Combined HTML
+    print("Creating combined HTML...")
+    with open("complete_content.html", "w", encoding="utf-8") as f:
+        f.write(f"<!DOCTYPE html><html><head><meta charset='utf-8'><title>{title}</title></head><body>")
+        for art_html in final_articles_html:
+            f.write(art_html)
+            f.write("<hr/>")
+        f.write("</body></html>")
+
+    # 7. Generate EPUB
+    generate_epub_file(title, output_filename)
+
+    # Cleanup
+    # if os.path.exists(local_folder):
+    #     shutil.rmtree(local_folder)
+    # os.remove("complete_content.html")
+    print("Done!")
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("請提供一個URL作為參數。")
-    else:
-        base_url = sys.argv[1]
-        title = extractTitle(base_url + "?page=1")
-        all_articles = {}
-        for page in range(1, 5):
-            url_with_page = base_url + f"?page={page}"
-            articles = process_page(url_with_page)
-            all_articles.update(articles)
-        create_combined_html(title, all_articles)
+    main()
 
-        # save as one complete html
-        saveCompleteHtml()
-        extract_css_data_text()
-
-        # generate epub
-        generate_epub_file(title, sys.argv[2])
-
-        # remove temp file and folder
-        if os.path.exists(local_folder):
-            shutil.rmtree(local_folder)
-        os.remove("combined.html")
-        os.remove("complete_content.html")
 
 
 
