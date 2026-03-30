@@ -2,8 +2,7 @@
 
 ## Prerequest
 * python (of course)
-* monolith (in your run path)
-* calibre's ebook-convert (should modify its path in script)
+* pip install requests beautifulsoup4 Pillow ebooklib
 
 ## Usage
 
