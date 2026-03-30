@@ -8,6 +8,7 @@ from PIL import Image
 import requests
 import re
 import shutil
+import subprocess
 import concurrent.futures
 from urllib.parse import urljoin, urlparse
 
@@ -41,14 +42,6 @@ def get_resource(url):
     except Exception as e:
         print(f"Error downloading resource {url}: {e}")
         return None
-
-def createFolder(title):
-    folder_name = title.replace("/", "_")
-    invalidstr = r"[\/\\\:\*\?\"\<\>\|]"
-    folder_name = re.sub(invalidstr, "_", folder_name)
-    if not os.path.exists(folder_name):
-        os.makedirs(folder_name)
-    return folder_name
 
 def extractTitle(url):
     html = get_url_content(url)
@@ -211,7 +204,6 @@ def generate_epub_file(title, output_file_name):
         print("Error generating EPUB:", e)
     except FileNotFoundError:
         print(f"Error: Calibre ebook-convert not found at {command}")
-import subprocess
 
 def main():
     if len(sys.argv) < 2:
@@ -226,43 +218,34 @@ def main():
     title = extractTitle(base_url + "?page=1")
     print(f"Series Title: {title}")
 
-    # 2. Get all article links (Pages 1-4)
-    # Note: Currently hardcoded 1-4 as per original script. 
-    # Could be dynamic, but sticking to original logic for finding pages.
+    # 2. Get all article links (fetch pages in parallel, reassemble in order)
     all_links = []
     print("Collecting article links...")
+    max_pages = 20
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-        future_to_page = {executor.submit(get_article_links_from_page, f"{base_url}?page={page}"): page for page in range(1, 6)} # Increased to 5 just in case
+        future_to_page = {executor.submit(get_article_links_from_page, f"{base_url}?page={page}"): page for page in range(1, max_pages + 1)}
+        page_results = {}
         for future in concurrent.futures.as_completed(future_to_page):
-            links = future.result()
-            all_links.extend(links)
-    
-    # Deduplicate while preserving order (if logic allows) or just use dict
-    # But usually order matters for books. 
-    # Since we fetched in parallel, order might be scrambled. We should probably sort or fetch sequentially for pages.
-    # To keep simple and correct: re-fetch pages sequentially or handle sorting.
-    # For now, let's just re-sort based on something if needed? 
-    # Actually, the original script looped 1 to 5 sequentially. 
-    # Let's fix the link collection to be ordered correctly.
-    
-    all_links = []
-    for page in range(1, 5):
-        url_with_page = base_url + f"?page={page}"
-        print(f"Scanning page {page}...")
-        links = get_article_links_from_page(url_with_page)
+            page = future_to_page[future]
+            page_results[page] = future.result()
+    for page in range(1, max_pages + 1):
+        links = page_results.get(page, [])
+        if not links:
+            break
         all_links.extend(links)
 
     print(f"Found {len(all_links)} articles.")
 
     # 3. Fetch Article Content in Parallel
-    articles_map = {} # title -> content
+    articles_map = {} # url -> content
     print("Downloading articles in parallel...")
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-        future_to_title = {executor.submit(process_article_content, title, url): title for title, url in all_links}
-        for future in concurrent.futures.as_completed(future_to_title):
+        future_to_url = {executor.submit(process_article_content, title, url): url for title, url in all_links}
+        for future in concurrent.futures.as_completed(future_to_url):
+            url = future_to_url[future]
             t, content = future.result()
             if content:
-                articles_map[t] = content
+                articles_map[url] = content
             else:
                 print(f"Failed to fetch content for {t}")
 
@@ -275,9 +258,9 @@ def main():
     all_resources = {} # url -> filename
 
     # We want to maintain original order
-    for article_title, _ in all_links:
-        if article_title in articles_map:
-            content = articles_map[article_title]
+    for _, article_url in all_links:
+        if article_url in articles_map:
+            content = articles_map[article_url]
             # Replace resources
             new_content, res = download_and_replace_resources(content, "https://ithelp.ithome.com.tw") # Base URL prediction
             final_articles_html.append(new_content)
