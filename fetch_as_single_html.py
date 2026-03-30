@@ -8,11 +8,10 @@ from PIL import Image
 import requests
 import re
 import shutil
-import subprocess
 import concurrent.futures
 from urllib.parse import urljoin, urlparse
+from ebooklib import epub
 
-calibre_convert_path = "/Applications/calibre.app/Contents/MacOS/ebook-convert"
 local_folder = 'local_resources'
 
 # Session for connection pooling
@@ -128,8 +127,7 @@ def download_and_replace_resources(html_content, base_url):
             continue
 
         if src.startswith("data:"):
-            # Decode data URL images directly instead of letting Calibre handle them
-            # (Calibre creates bloated duplicate PNG+JPEG pairs from data URLs)
+            # Decode data URL images and save to disk
             match = re.match(r'data:image/([^;]+);base64,(.*)', src, re.DOTALL)
             if match:
                 img_data = base64.b64decode(match.group(2))
@@ -178,32 +176,76 @@ def download_asset(url, filename, output_folder):
         with open(path, "wb") as f:
             f.write(content)
 
-def generate_epub_file(title, output_file_name):
-    command = calibre_convert_path
-    input_file = "complete_content.html"
-    output_file = "output.epub" if output_file_name is None else output_file_name
+def generate_epub_file(title, output_file_name, articles_html, resource_folder):
+    book = epub.EpubBook()
+    book.set_identifier('ithome-' + hashlib.md5(title.encode()).hexdigest())
+    book.set_title(title)
+    book.set_language('zh-TW')
+    book.add_author('iThome')
 
-    options = [
-        "--level1-toc", "//h:h2[@class]",
-        "--page-breaks-before", "//h:h2[re:test(@class, 'qa-header__title', 'i')]",
-        "--chapter-mark", "none",
-        "--title", title,
-        "--authors", "iThome",
-        "--output-profile", "tablet",
-        "--flow-size", "10240",
-        "--filter-css", "font-family",
-        "--subset-embedded-fonts",
-    ]
+    style = epub.EpubItem(
+        uid="default_style",
+        file_name="style/default.css",
+        media_type="text/css",
+        content=b"img { max-width: 100%; height: auto; }\n"
+                b".qa-header__title { page-break-before: always; }\n",
+    )
+    book.add_item(style)
 
-    full_command = [command, input_file, output_file] + options
+    # Collect referenced images from article HTML
+    referenced_images = set()
+    for html in articles_html:
+        for match in re.findall(rf'{re.escape(resource_folder)}/([^"\'<>\s]+)', html):
+            referenced_images.add(match)
 
-    try:
-        subprocess.run(full_command, check=True)
-        print("EPUB generated:", output_file)
-    except subprocess.CalledProcessError as e:
-        print("Error generating EPUB:", e)
-    except FileNotFoundError:
-        print(f"Error: Calibre ebook-convert not found at {command}")
+    # Add only referenced images
+    media_types = {
+        '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
+        '.png': 'image/png', '.gif': 'image/gif',
+        '.svg': 'image/svg+xml', '.webp': 'image/webp',
+    }
+    for filename in referenced_images:
+        filepath = os.path.join(resource_folder, filename)
+        if not os.path.isfile(filepath):
+            continue
+        ext = os.path.splitext(filename)[1].lower()
+        media_type = media_types.get(ext, 'application/octet-stream')
+        with open(filepath, 'rb') as f:
+            book.add_item(epub.EpubItem(
+                uid=filename,
+                file_name=f"images/{filename}",
+                media_type=media_type,
+                content=f.read(),
+            ))
+
+    # Create one chapter per article
+    chapters = []
+    for i, html in enumerate(articles_html):
+        # Rewrite image paths from local_resources/ to images/
+        html = html.replace(f'{resource_folder}/', 'images/')
+
+        soup = BeautifulSoup(html, 'html.parser')
+        h2 = soup.find('h2')
+        chapter_title = h2.get_text(strip=True) if h2 else f'Chapter {i + 1}'
+
+        chapter = epub.EpubHtml(
+            title=chapter_title,
+            file_name=f'chapter_{i + 1}.xhtml',
+            lang='zh-TW',
+        )
+        chapter.content = html
+        chapter.add_item(style)
+        book.add_item(chapter)
+        chapters.append(chapter)
+
+    book.toc = chapters
+    book.add_item(epub.EpubNcx())
+    book.add_item(epub.EpubNav())
+    book.spine = ['nav'] + chapters
+
+    output_file = output_file_name or 'output.epub'
+    epub.write_epub(output_file, book)
+    print("EPUB generated:", output_file)
 
 def main():
     if len(sys.argv) < 2:
@@ -272,22 +314,12 @@ def main():
         futures = [executor.submit(download_asset, url, fname, local_folder) for url, fname in all_resources.items()]
         concurrent.futures.wait(futures)
 
-    # 6. Create Combined HTML
-    print("Creating combined HTML...")
-    with open("complete_content.html", "w", encoding="utf-8") as f:
-        f.write(f"<!DOCTYPE html><html><head><meta charset='utf-8'><title>{title}</title></head><body>")
-        for art_html in final_articles_html:
-            f.write(art_html)
-            f.write("<hr/>")
-        f.write("</body></html>")
-
-    # 7. Generate EPUB
-    generate_epub_file(title, output_filename)
+    # 6. Generate EPUB
+    generate_epub_file(title, output_filename, final_articles_html, local_folder)
 
     # Cleanup
-    # if os.path.exists(local_folder):
-    #     shutil.rmtree(local_folder)
-    # os.remove("complete_content.html")
+    if os.path.exists(local_folder):
+        shutil.rmtree(local_folder)
     print("Done!")
 
 if __name__ == "__main__":
