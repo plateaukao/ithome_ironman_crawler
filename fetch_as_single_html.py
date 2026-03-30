@@ -1,8 +1,10 @@
 import base64
+import io
 import os
 import sys
 import hashlib
 from bs4 import BeautifulSoup
+from PIL import Image
 import requests
 import re
 import shutil
@@ -104,7 +106,13 @@ def process_article_content(title, url):
         action_bar = content.find("div", {"class": "qa-action"})
         if action_bar:
             action_bar.decompose()
-        
+
+        # Remove style/link tags to prevent font CSS from being embedded
+        for style_tag in content.find_all("style"):
+            style_tag.decompose()
+        for link_tag in content.find_all("link"):
+            link_tag.decompose()
+
         content['style'] = 'padding-left: 0;'
         return title, str(content)
     
@@ -114,30 +122,68 @@ def download_and_replace_resources(html_content, base_url):
     soup = BeautifulSoup(html_content, "html.parser")
     resources_to_download = {} # url -> filename
 
+    # Strip any remaining style/link tags
+    for tag in soup.find_all("style"):
+        tag.decompose()
+    for tag in soup.find_all("link", attrs={"rel": "stylesheet"}):
+        tag.decompose()
+
     # Find images
     for img in soup.find_all("img"):
         src = img.get("src")
-        if src:
+        if not src:
+            continue
+
+        if src.startswith("data:"):
+            # Decode data URL images directly instead of letting Calibre handle them
+            # (Calibre creates bloated duplicate PNG+JPEG pairs from data URLs)
+            match = re.match(r'data:image/([^;]+);base64,(.*)', src, re.DOTALL)
+            if match:
+                img_data = base64.b64decode(match.group(2))
+                # Convert PNG to JPEG to reduce size (PNGs are 3-10x larger)
+                pil_img = Image.open(io.BytesIO(img_data))
+                if pil_img.mode in ('RGBA', 'P'):
+                    pil_img = pil_img.convert('RGB')
+                buf = io.BytesIO()
+                pil_img.save(buf, format='JPEG', quality=85)
+                img_data = buf.getvalue()
+                filename = hashlib.md5(img_data).hexdigest() + '.jpg'
+                filepath = os.path.join(local_folder, filename)
+                if not os.path.exists(filepath):
+                    with open(filepath, 'wb') as f:
+                        f.write(img_data)
+                img['src'] = f"{local_folder}/{filename}"
+        else:
             abs_url = urljoin(base_url, src)
-            filename = hashlib.md5(abs_url.encode()).hexdigest() + os.path.splitext(urlparse(abs_url).path)[1]
+            ext = os.path.splitext(urlparse(abs_url).path)[1]
+            filename = hashlib.md5(abs_url.encode()).hexdigest() + ext
             if not filename.endswith(('.jpg', '.png', '.gif', '.jpeg', '.svg', '.webp')):
                  filename += ".jpg" # Default fallback
+            # PNG will be converted to JPEG during download
+            html_filename = filename.replace('.png', '.jpg') if filename.endswith('.png') else filename
             resources_to_download[abs_url] = filename
-            img['src'] = f"{local_folder}/{filename}"
+            img['src'] = f"{local_folder}/{html_filename}"
 
-    # Find CSS (if we were preserving full head, but we are stripping most. 
-    # However, if there are inline styles or other assets, we might need them.
-    # The original script focused mostly on images for the content part)
-    
     return str(soup), resources_to_download
 
 def download_asset(url, filename, output_folder):
     content = get_resource(url)
     if content:
         path = os.path.join(output_folder, filename)
+        # Convert PNG to JPEG to reduce EPUB size
+        if filename.endswith('.png'):
+            try:
+                pil_img = Image.open(io.BytesIO(content))
+                if pil_img.mode in ('RGBA', 'P'):
+                    pil_img = pil_img.convert('RGB')
+                buf = io.BytesIO()
+                pil_img.save(buf, format='JPEG', quality=85)
+                content = buf.getvalue()
+                path = path.rsplit('.', 1)[0] + '.jpg'
+            except Exception:
+                pass  # Keep original if conversion fails
         with open(path, "wb") as f:
             f.write(content)
-        # print(f"Downloaded {filename}")
 
 def generate_epub_file(title, output_file_name):
     command = calibre_convert_path
@@ -149,8 +195,11 @@ def generate_epub_file(title, output_file_name):
         "--page-breaks-before", "//h:h2[re:test(@class, 'qa-header__title', 'i')]",
         "--chapter-mark", "none",
         "--title", title,
+        "--authors", "iThome",
         "--output-profile", "tablet",
-        "--flow-size", "10240"
+        "--flow-size", "10240",
+        "--filter-css", "font-family",
+        "--subset-embedded-fonts",
     ]
 
     full_command = [command, input_file, output_file] + options
