@@ -1,0 +1,366 @@
+[
+  {
+    "tier": "冠軍",
+    "category": "AI & Data",
+    "title": "Apache NiFi - 讓你輕鬆設計 Data Pipeline",
+    "author": "Mars Su",
+    "url": "https://ithelp.ithome.com.tw/users/20140257/ironman/4025"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Arm Platforms",
+    "title": "爭什麼，把AI和MCU摻在一起做tinyML就對了！",
+    "author": "史蒂芬周",
+    "url": "https://ithelp.ithome.com.tw/users/20141396/ironman/4855"
+  },
+  {
+    "tier": "冠軍",
+    "category": "DevOps",
+    "title": "喬叔帶你上手 Elastic Stack - 探索與實踐 Observability",
+    "author": "喬叔",
+    "url": "https://ithelp.ithome.com.tw/users/20129543/ironman/4841"
+  },
+  {
+    "tier": "冠軍",
+    "category": "IT管理",
+    "title": "邁向Tech Leader的成長之路",
+    "author": "small2kuo",
+    "url": "https://ithelp.ithome.com.tw/users/20141895/ironman/4801"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Mobile Development",
+    "title": "Android 口罩地圖入門實戰 30 天 (使用 Kotlin 程式語言)",
+    "author": "HKT 線上教室",
+    "url": "https://ithelp.ithome.com.tw/users/20096484/ironman/4572"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Security",
+    "title": "現實主義勇者的 Windows 攻防記",
+    "author": "zeze",
+    "url": "https://ithelp.ithome.com.tw/users/20129318/ironman/4165"
+  },
+  {
+    "tier": "冠軍",
+    "category": "永豐金融APIs",
+    "title": "看手冊學金流串接 - 永豐「豐收款」 API",
+    "author": "高見龍",
+    "url": "https://ithelp.ithome.com.tw/users/20065770/ironman/4891"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Software Development",
+    "title": "你就是都不寫測試才會沒時間：Kuma 的 30 天 Unit Test 手把手教學，從理論到實戰 （Java 篇）",
+    "author": "Kuma",
+    "url": "https://ithelp.ithome.com.tw/users/20107429/ironman/3897"
+  },
+  {
+    "tier": "冠軍",
+    "category": "影片教學",
+    "title": "文組生的Python爬蟲之旅",
+    "author": "水母君",
+    "url": "https://ithelp.ithome.com.tw/users/20141397/ironman/4631"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Modern Web",
+    "title": "今晚，我想來點 Web 前端效能優化大補帖！",
+    "author": "莫力全 Kyle Mo",
+    "url": "https://ithelp.ithome.com.tw/users/20113277/ironman/3877"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Modern Web",
+    "title": "排版神器 Tailwind CSS～和兔兔一起快速上手漂亮的元件開發！",
+    "author": "搋兔",
+    "url": "https://ithelp.ithome.com.tw/users/20138853/ironman/3928"
+  },
+  {
+    "tier": "優選",
+    "category": "AI & Data",
+    "title": "當自然語言處理遇上深度學習",
+    "author": "Friedrich1942",
+    "url": "https://ithelp.ithome.com.tw/users/20140744/ironman/4491"
+  },
+  {
+    "tier": "優選",
+    "category": "IT管理",
+    "title": "突破困境：企業開源虛擬化管理平台",
+    "author": "Jason Cheng (節省哥)",
+    "url": "https://ithelp.ithome.com.tw/users/20118848/ironman/4678"
+  },
+  {
+    "tier": "優選",
+    "category": "Software Development",
+    "title": "Functional Programming For Everyone",
+    "author": "Jing.tech",
+    "url": "https://ithelp.ithome.com.tw/users/20140431/ironman/4122"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "[ 重構倒數30天，你的網站不Vue白不Vue ]",
+    "author": "Mike",
+    "url": "https://ithelp.ithome.com.tw/users/20125854/ironman/4112"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "如何在網頁中繪製 3D 場景？從 WebGL 的基礎開始說起",
+    "author": "PastLeo",
+    "url": "https://ithelp.ithome.com.tw/users/20140099/ironman/3929"
+  },
+  {
+    "tier": "優選",
+    "category": "Arm Platforms",
+    "title": "基於ARM-M0架構MCU之落摔檢測韌體開發",
+    "author": "Shortbread",
+    "url": "https://ithelp.ithome.com.tw/users/20141979/ironman/4820"
+  },
+  {
+    "tier": "優選",
+    "category": "永豐金融APIs",
+    "title": "永豐金 API - 豐支付 PHP SDK 設計及 WooCommerce 電商串接實戰",
+    "author": "Terry L.",
+    "url": "https://ithelp.ithome.com.tw/users/20111119/ironman/4406"
+  },
+  {
+    "tier": "優選",
+    "category": "Security",
+    "title": "Kali Linux 工具筆記",
+    "author": "chacoteeth",
+    "url": "https://ithelp.ithome.com.tw/users/20140317/ironman/4601"
+  },
+  {
+    "tier": "優選",
+    "category": "DevOps",
+    "title": "DevOps 萌新的 TeamCity 極速上手寶典",
+    "author": "聖佑",
+    "url": "https://ithelp.ithome.com.tw/users/20107229/ironman/4666"
+  },
+  {
+    "tier": "優選",
+    "category": "影片教學",
+    "title": "前端工程師也能開發全端網頁：挑戰 30 天用 React 加上 Firebase 打造社群網站",
+    "author": "谷哥",
+    "url": "https://ithelp.ithome.com.tw/users/20104727/ironman/3947"
+  },
+  {
+    "tier": "優選",
+    "category": "Mobile Development",
+    "title": "從零開始的8-bit迷宮探險！Swift SpriteKit 遊戲開發實戰",
+    "author": "雪花冰",
+    "url": "https://ithelp.ithome.com.tw/users/20140261/ironman/4217"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "All In One NFT Website Development",
+    "author": "ALu",
+    "url": "https://ithelp.ithome.com.tw/users/20140105/ironman/3939"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "不只懂 Vue 語法：Vue.js 觀念篇",
+    "author": "Alysa Chan",
+    "url": "https://ithelp.ithome.com.tw/users/20128534/ironman/4377"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "Coroutine 停看聽",
+    "author": "Andy 安迪",
+    "url": "https://ithelp.ithome.com.tw/users/20129264/ironman/3966"
+  },
+  {
+    "tier": "佳作",
+    "category": "影片教學",
+    "title": "[從0到1] C#小乳牛 練成基礎程式邏輯",
+    "author": "C#.NET",
+    "url": "https://ithelp.ithome.com.tw/users/20137657/ironman/4020"
+  },
+  {
+    "tier": "佳作",
+    "category": "DevOps",
+    "title": "Terraform Workshop - Infrastructure as Code for Public Cloud 疫情警戒陪你度過 30 天",
+    "author": "Che-Chia (David) Chang",
+    "url": "https://ithelp.ithome.com.tw/users/20120327/ironman/4057"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "如何開發適合電子書閱讀器使用的瀏覽器 Android APP",
+    "author": "Daniel Kao",
+    "url": "https://ithelp.ithome.com.tw/users/20140260/ironman/4027"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "微自幹的作業系統輕旅行",
+    "author": "EN",
+    "url": "https://ithelp.ithome.com.tw/users/20110850/ironman/3859"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI & Data",
+    "title": "手寫中文字之影像辨識",
+    "author": "Ethan Chen",
+    "url": "https://ithelp.ithome.com.tw/users/20141810/ironman/4759"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "NestJS 帶你飛！",
+    "author": "HAO",
+    "url": "https://ithelp.ithome.com.tw/users/20119338/ironman/3880"
+  },
+  {
+    "tier": "佳作",
+    "category": "DevOps",
+    "title": "Rancher & GitOps 管理 Kubernetes 不困難",
+    "author": "HungWei Chiu",
+    "url": "https://ithelp.ithome.com.tw/users/20120317/ironman/4034"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "從零開始學習 Next.js",
+    "author": "Leochiu",
+    "url": "https://ithelp.ithome.com.tw/users/20110504/ironman/4269"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "30 天擁有一套自己手刻的 React UI 元件庫",
+    "author": "Taiming",
+    "url": "https://ithelp.ithome.com.tw/users/20111490/ironman/3999"
+  },
+  {
+    "tier": "佳作",
+    "category": "Arm Platforms",
+    "title": "OpenWRT開源路由兩三事",
+    "author": "aent",
+    "url": "https://ithelp.ithome.com.tw/users/20140618/ironman/4546"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI & Data",
+    "title": "然後模型就死在 Jupyter Notebook 了 (ಥ﹏ಥ)",
+    "author": "chihying",
+    "url": "https://ithelp.ithome.com.tw/users/20141304/ironman/4559"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "Jetpack Compose X Android Architecture X Functional Reactive Programming",
+    "author": "hungyanbin",
+    "url": "https://ithelp.ithome.com.tw/users/20121700/ironman/4041"
+  },
+  {
+    "tier": "佳作",
+    "category": "影片教學",
+    "title": "連續30天，每天5分鐘，一起學習blockchain!",
+    "author": "zoeke9011",
+    "url": "https://ithelp.ithome.com.tw/users/20140143/ironman/4741"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI & Data",
+    "title": "AI Facial Expression Recognition: Data, Model, Application",
+    "author": "佑佑來了",
+    "url": "https://ithelp.ithome.com.tw/users/20141294/ironman/4538"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "【今年還是不夠錢買psQQ，不如我們用PyQt自己寫一個】",
+    "author": "嗡嗡",
+    "url": "https://ithelp.ithome.com.tw/users/20120424/ironman/4879"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "全端工程師生存筆記",
+    "author": "寶寶出頭天",
+    "url": "https://ithelp.ithome.com.tw/users/20103256/ironman/4227"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI & Data",
+    "title": "[Computer Vision] 電腦視覺下的人臉",
+    "author": "山姆大叔",
+    "url": "https://ithelp.ithome.com.tw/users/20115823/ironman/4606"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "基於 Kotlin Ktor 建構支援模組化開發的 Web 框架",
+    "author": "林俊宏",
+    "url": "https://ithelp.ithome.com.tw/users/20140074/ironman/3969"
+  },
+  {
+    "tier": "佳作",
+    "category": "IT管理",
+    "title": "無限手套 AWS 版：掌控一切的 5 + 1 雲端必學主題",
+    "author": "用圖片高效學程式",
+    "url": "https://ithelp.ithome.com.tw/users/20100951/ironman/4671"
+  },
+  {
+    "tier": "佳作",
+    "category": "Security",
+    "title": "從以卵擊石到堅若磐石之 Web API 安全性全攻略",
+    "author": "盧承億 Larry Lu",
+    "url": "https://ithelp.ithome.com.tw/users/20107714/ironman/4279"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "在麥塊的農場裡寫 Lua",
+    "author": "蛋踢球",
+    "url": "https://ithelp.ithome.com.tw/users/20092912/ironman/4642"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "三十天成為D3.js v7 好手",
+    "author": "金金",
+    "url": "https://ithelp.ithome.com.tw/users/20134930/ironman/4181"
+  },
+  {
+    "tier": "佳作",
+    "category": "永豐金融APIs",
+    "title": "錢進！永豐金融APIs程式串接實戰最前線",
+    "author": "雷哥",
+    "url": "https://ithelp.ithome.com.tw/users/20130354/ironman/4859"
+  },
+  {
+    "tier": "佳作",
+    "category": "Security",
+    "title": "資安這條路─系統化學習滲透測試",
+    "author": "飛飛",
+    "url": "https://ithelp.ithome.com.tw/users/20108446/ironman/4492"
+  },
+  {
+    "tier": "佳作",
+    "category": "IT管理",
+    "title": "從 IT 技術面細說 Search Console 的 27 組數字 KPI",
+    "author": "食夢黑貘",
+    "url": "https://ithelp.ithome.com.tw/users/20000065/ironman/4545"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "予焦啦！Hoddarla 專案起步：使用 Golang 撰寫 RISC-V 作業系統的初步探索",
+    "author": "高魁良",
+    "url": "https://ithelp.ithome.com.tw/users/20103524/ironman/4460"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "你渴望連結嗎？將 Web 與硬體連上線吧！",
+    "author": "鱈魚",
+    "url": "https://ithelp.ithome.com.tw/users/20140213/ironman/4765"
+  }
+]

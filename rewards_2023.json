@@ -1,0 +1,492 @@
+[
+  {
+    "tier": "冠軍",
+    "category": "AI & Data",
+    "title": "LLM 學習筆記",
+    "author": "Penut Chen",
+    "url": "https://ithelp.ithome.com.tw/users/20121763/ironman/6145"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Cloud Native",
+    "title": "時光之鏡：透視過去、現在與未來的 Observability",
+    "author": "Blueswen",
+    "url": "https://ithelp.ithome.com.tw/users/20162175/ironman/6445"
+  },
+  {
+    "tier": "冠軍",
+    "category": "DevOps",
+    "title": "一窺SRE初心者的生活：讓警報為您的人生畫下如交響樂一般的新篇章",
+    "author": "SeanIa̍p",
+    "url": "https://ithelp.ithome.com.tw/users/20162472/ironman/6398"
+  },
+  {
+    "tier": "冠軍",
+    "category": "IT管理",
+    "title": "多團隊如何協作進行敏捷開發的利器 - Large Scale Scrum (LeSS)",
+    "author": "kojenchieh",
+    "url": "https://ithelp.ithome.com.tw/users/20161809/ironman/5995"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Mobile Development",
+    "title": "Ionic結合ChatGPT - 30天打造AI英語口說導師APP",
+    "author": "momochenisme",
+    "url": "https://ithelp.ithome.com.tw/users/20161663/ironman/5944"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Odoo",
+    "title": "ODOO16社群版-ERP使用手冊",
+    "author": "Harry Chang",
+    "url": "https://ithelp.ithome.com.tw/users/20161788/ironman/5957"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Security",
+    "title": "Beyond XSS：探索網頁前端資安宇宙",
+    "author": "huli",
+    "url": "https://ithelp.ithome.com.tw/users/20091346/ironman/6155"
+  },
+  {
+    "tier": "冠軍",
+    "category": "SideProject30",
+    "title": "毫無自信的開發Web遊戲接龍-成為創造龍的英雄之路!",
+    "author": "懶惰學",
+    "url": "https://ithelp.ithome.com.tw/users/20091550/ironman/6691"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Software Development",
+    "title": "圖解C++影像處理與OpenCV應用：從基礎到高階，深入學習超硬核技術！",
+    "author": "VincentYeh",
+    "url": "https://ithelp.ithome.com.tw/users/20161732/ironman/5994"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Software Development",
+    "title": "為你自己學 Ru.....st",
+    "author": "高見龍",
+    "url": "https://ithelp.ithome.com.tw/users/20065770/ironman/6174"
+  },
+  {
+    "tier": "冠軍",
+    "category": "影片教學",
+    "title": "Vite 原始碼解讀",
+    "author": "高見龍",
+    "url": "https://ithelp.ithome.com.tw/users/20065770/ironman/6302"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Vue.js",
+    "title": "Nuxt 3 實戰筆記",
+    "author": "Ryan",
+    "url": "https://ithelp.ithome.com.tw/users/20152617/ironman/6959"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Modern Web",
+    "title": "深入淺出，完整認識 Next.js 13 ！",
+    "author": "S.C",
+    "url": "https://ithelp.ithome.com.tw/users/20161853/ironman/6122"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Modern Web",
+    "title": "30天React練功坊-攻克常見實務/面試問題",
+    "author": "windate3411",
+    "url": "https://ithelp.ithome.com.tw/users/20129072/ironman/6741"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Web 3",
+    "title": "Web3 全端工程師的技術養成之路",
+    "author": "Harry Chen",
+    "url": "https://ithelp.ithome.com.tw/users/20162294/ironman/6262"
+  },
+  {
+    "tier": "冠軍",
+    "category": "WordPress",
+    "title": "從 0 到 100：WordPress 開發者的實戰手冊",
+    "author": "Terry L.",
+    "url": "https://ithelp.ithome.com.tw/users/20111119/ironman/6303"
+  },
+  {
+    "tier": "優選",
+    "category": "IT管理",
+    "title": "從零到專家：專案管理工具 Redmine 實戰指南",
+    "author": "#Sylv!a",
+    "url": "https://ithelp.ithome.com.tw/users/20145790/ironman/6279"
+  },
+  {
+    "tier": "優選",
+    "category": "Mobile Development",
+    "title": "Senior  工程師的入門指南：Flutter 進擊之路",
+    "author": "Dorara",
+    "url": "https://ithelp.ithome.com.tw/users/20117363/ironman/6208"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "設計系統 - Design System",
+    "author": "Jing.tech",
+    "url": "https://ithelp.ithome.com.tw/users/20140431/ironman/6604"
+  },
+  {
+    "tier": "優選",
+    "category": "AI & Data",
+    "title": "被 dbt 帶入門的數據工作體驗 30 想",
+    "author": "Karen Hsieh",
+    "url": "https://ithelp.ithome.com.tw/users/20160643/ironman/6051"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "從 Next.js 開始的 Functional Programming",
+    "author": "RichardW",
+    "url": "https://ithelp.ithome.com.tw/users/20158615/ironman/6391"
+  },
+  {
+    "tier": "優選",
+    "category": "影片教學",
+    "title": "Nuxt 3 快速入門",
+    "author": "Ryan",
+    "url": "https://ithelp.ithome.com.tw/users/20152617/ironman/6964"
+  },
+  {
+    "tier": "優選",
+    "category": "Odoo",
+    "title": "Odoo 16 OCA 模組介紹 - web",
+    "author": "TYC777",
+    "url": "https://ithelp.ithome.com.tw/users/20161873/ironman/6554"
+  },
+  {
+    "tier": "優選",
+    "category": "Web 3",
+    "title": "從 區塊鏈 到 去中心化應用程式(DApp)",
+    "author": "Tcweeei",
+    "url": "https://ithelp.ithome.com.tw/users/20162912/ironman/6666"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "網頁的另一個大腦：從基礎到進階掌握 Web Worker 技術",
+    "author": "bcjohn",
+    "url": "https://ithelp.ithome.com.tw/users/20162687/ironman/6532"
+  },
+  {
+    "tier": "優選",
+    "category": "SideProject30",
+    "title": "一起成為新世紀文字藝術師：深入玩轉 Unicode 和 OpenType",
+    "author": "chingru",
+    "url": "https://ithelp.ithome.com.tw/users/20162880/ironman/6994"
+  },
+  {
+    "tier": "優選",
+    "category": "Vue.js",
+    "title": "Nuxt.js 3.x 筆記－打造 SSR 專案",
+    "author": "claire chang",
+    "url": "https://ithelp.ithome.com.tw/users/20130500/ironman/6236"
+  },
+  {
+    "tier": "優選",
+    "category": "AI & Data",
+    "title": "生成式AI到底何方神聖？一窺生程式AI的真面目",
+    "author": "golucky_sir",
+    "url": "https://ithelp.ithome.com.tw/users/20151029/ironman/6421"
+  },
+  {
+    "tier": "優選",
+    "category": "Vue.js",
+    "title": "這是我的 Vue.js 筆記，不知道有沒有機會幫到你",
+    "author": "imall",
+    "url": "https://ithelp.ithome.com.tw/users/20162483/ironman/6512"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "Django 與 Strawberry GraphQL：探索現代 API 開發之路",
+    "author": "jasonxie",
+    "url": "https://ithelp.ithome.com.tw/users/20161957/ironman/6170"
+  },
+  {
+    "tier": "優選",
+    "category": "Security",
+    "title": "從自建漏洞中學習 - 一起填坑吧",
+    "author": "kika",
+    "url": "https://ithelp.ithome.com.tw/users/20107197/ironman/6822"
+  },
+  {
+    "tier": "優選",
+    "category": "Software Development",
+    "title": "Python 棒球數據分析套件 pybaseball 介紹",
+    "author": "lihsuanh",
+    "url": "https://ithelp.ithome.com.tw/users/20163024/ironman/6694"
+  },
+  {
+    "tier": "優選",
+    "category": "Odoo",
+    "title": "Odoo 16 OCA 模組介紹 - account-invoicing",
+    "author": "muchi",
+    "url": "https://ithelp.ithome.com.tw/users/20161874/ironman/6777"
+  },
+  {
+    "tier": "優選",
+    "category": "DevOps",
+    "title": "在OpenStack Neutron的ovn-networking裡挖呀挖呀挖",
+    "author": "ogre0403",
+    "url": "https://ithelp.ithome.com.tw/users/20161794/ironman/6010"
+  },
+  {
+    "tier": "優選",
+    "category": "SideProject30",
+    "title": "營養師不開菜單要用 Next.js 13 寫全端",
+    "author": "ysl0628",
+    "url": "https://ithelp.ithome.com.tw/users/20152073/ironman/6676"
+  },
+  {
+    "tier": "優選",
+    "category": "Security",
+    "title": "來自核心－烈日的 Windows",
+    "author": "zeze",
+    "url": "https://ithelp.ithome.com.tw/users/20129318/ironman/6649"
+  },
+  {
+    "tier": "優選",
+    "category": "Mobile Development",
+    "title": "用 SwiftUI 魔法變出 Leetcode 刷題知識學習 App！",
+    "author": "一杯溫奶茶",
+    "url": "https://ithelp.ithome.com.tw/users/20162469/ironman/6381"
+  },
+  {
+    "tier": "優選",
+    "category": "影片教學",
+    "title": "Node.js 實戰密技與辦公室的小壞壞：即戰力釋放讓總裁的心動瞬間",
+    "author": "卡斯伯",
+    "url": "https://ithelp.ithome.com.tw/users/20083608/ironman/6722"
+  },
+  {
+    "tier": "優選",
+    "category": "Software Development",
+    "title": "Spring Boot 零基礎入門",
+    "author": "古古",
+    "url": "https://ithelp.ithome.com.tw/users/20151036/ironman/6130"
+  },
+  {
+    "tier": "優選",
+    "category": "DevOps",
+    "title": "任務導向的Azure DevOps 系列文",
+    "author": "山姆大叔",
+    "url": "https://ithelp.ithome.com.tw/users/20162800/ironman/6833"
+  },
+  {
+    "tier": "優選",
+    "category": "Cloud Native",
+    "title": "30 天學習 Pulumi：用各種程式語言控制雲端資源",
+    "author": "新創打雜掃地僧",
+    "url": "https://ithelp.ithome.com.tw/users/20162822/ironman/7036"
+  },
+  {
+    "tier": "優選",
+    "category": "WordPress",
+    "title": "從零開始的 WordPress 之旅：建站、使用、擁抱社群",
+    "author": "艾瑞克",
+    "url": "https://ithelp.ithome.com.tw/users/20121194/ironman/6344"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI & Data",
+    "title": "揭開黑箱模型：探索可解釋人工智慧",
+    "author": "10程式中",
+    "url": "https://ithelp.ithome.com.tw/users/20107247/ironman/6272"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI & Data",
+    "title": "AI繪圖與實作",
+    "author": "200010881wu",
+    "url": "https://ithelp.ithome.com.tw/users/20159746/ironman/6721"
+  },
+  {
+    "tier": "佳作",
+    "category": "IT管理",
+    "title": "萬丈高樓平地起：解決方案架構師的探索之旅",
+    "author": "Anthony",
+    "url": "https://ithelp.ithome.com.tw/users/20141298/ironman/6654"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "Google Maps SDK for Android 與 GIS App 開發筆記",
+    "author": "Daniel Huang",
+    "url": "https://ithelp.ithome.com.tw/users/20160271/ironman/6465"
+  },
+  {
+    "tier": "佳作",
+    "category": "DevOps",
+    "title": "Azure DevOps Troubleshooting and best practices",
+    "author": "Duran Hsieh",
+    "url": "https://ithelp.ithome.com.tw/users/20091494/ironman/6973"
+  },
+  {
+    "tier": "佳作",
+    "category": "IT管理",
+    "title": "OCS Inventory：開源資產管理解決方案",
+    "author": "Ivan Cheng",
+    "url": "https://ithelp.ithome.com.tw/users/20159730/ironman/5959"
+  },
+  {
+    "tier": "佳作",
+    "category": "SideProject30",
+    "title": "打造紐時風格的時間線小遊戲",
+    "author": "Jim in the Gym",
+    "url": "https://ithelp.ithome.com.tw/users/20107703/ironman/6716"
+  },
+  {
+    "tier": "佳作",
+    "category": "影片教學",
+    "title": "『請你跟我這樣做』- 30 天 TDD  出一個 SLOT 算分器",
+    "author": "Kuma",
+    "url": "https://ithelp.ithome.com.tw/users/20107429/ironman/6402"
+  },
+  {
+    "tier": "佳作",
+    "category": "DevOps",
+    "title": "Observability 101",
+    "author": "Marcus",
+    "url": "https://ithelp.ithome.com.tw/users/20162577/ironman/6448"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "Flutter 從零到實戰 - 30 天の學習筆記",
+    "author": "Micro Jordan",
+    "url": "https://ithelp.ithome.com.tw/users/20135082/ironman/6619"
+  },
+  {
+    "tier": "佳作",
+    "category": "IT管理",
+    "title": "PM猴子的一生 - 產品經理除了出張嘴背後默默做的事情們",
+    "author": "PM猴子",
+    "url": "https://ithelp.ithome.com.tw/users/20161813/ironman/6269"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "30 天學習 Elasticsearch",
+    "author": "Robert Chang",
+    "url": "https://ithelp.ithome.com.tw/users/20140124/ironman/6081"
+  },
+  {
+    "tier": "佳作",
+    "category": "IT管理",
+    "title": "Linux 升華：初學者的探索到專家的洞察",
+    "author": "Steven Liao",
+    "url": "https://ithelp.ithome.com.tw/users/20162250/ironman/6237"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI & Data",
+    "title": "以 OpenAI 以及 LangChain 實做我的聊天機器人",
+    "author": "Ted Chen",
+    "url": "https://ithelp.ithome.com.tw/users/20154415/ironman/6008"
+  },
+  {
+    "tier": "佳作",
+    "category": "影片教學",
+    "title": "30天讓你從【零基礎】掌握智能合約 Solidity 入門走到飛",
+    "author": "Wade",
+    "url": "https://ithelp.ithome.com.tw/users/20125127/ironman/6066"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "探索 Flutter 由裡到外，三十天帶你前往進階",
+    "author": "Yii Chen",
+    "url": "https://ithelp.ithome.com.tw/users/20120687/ironman/6093"
+  },
+  {
+    "tier": "佳作",
+    "category": "DevOps",
+    "title": "Terraform 從零開始 - 實戰Lab打造GCP雲端自動化架構",
+    "author": "alexhsieh",
+    "url": "https://ithelp.ithome.com.tw/users/20104919/ironman/6605"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI & Data",
+    "title": "30天內成為NLP大師：掌握關鍵工具和技巧",
+    "author": "austin70915",
+    "url": "https://ithelp.ithome.com.tw/users/20152236/ironman/6669"
+  },
+  {
+    "tier": "佳作",
+    "category": "Kotlin",
+    "title": "喝咖啡要30天？一起用 Kotlin 打造尋找好喝咖啡的 App",
+    "author": "helloiris",
+    "url": "https://ithelp.ithome.com.tw/users/20152862/ironman/6681"
+  },
+  {
+    "tier": "佳作",
+    "category": "Odoo",
+    "title": "以 Odoo v16 開啟製造業的一天",
+    "author": "jerryxu4j",
+    "url": "https://ithelp.ithome.com.tw/users/20138926/ironman/6858"
+  },
+  {
+    "tier": "佳作",
+    "category": "IT管理",
+    "title": "Five mins RPA | 機器人流程自動化",
+    "author": "juck30808",
+    "url": "https://ithelp.ithome.com.tw/users/20140740/ironman/6610"
+  },
+  {
+    "tier": "佳作",
+    "category": "DevOps",
+    "title": "從Software Developer的角度一起認識 Kubernetes",
+    "author": "luciferstut",
+    "url": "https://ithelp.ithome.com.tw/users/20147637/ironman/6738"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "無職轉生～在資工系就拿出真本事٩(๑•̀ω•́๑)۶【Flutter Go in 30 Days】",
+    "author": "xianyu",
+    "url": "https://ithelp.ithome.com.tw/users/20151593/ironman/5953"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI & Data",
+    "title": "電腦眼中的人臉--論近代人類都用電腦視覺技術在人臉上做了什麼",
+    "author": "zivzhong",
+    "url": "https://ithelp.ithome.com.tw/users/20120549/ironman/7060"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "30 天輕鬆學會 Flutter 測試",
+    "author": "保羅",
+    "url": "https://ithelp.ithome.com.tw/users/20129825/ironman/5974"
+  },
+  {
+    "tier": "佳作",
+    "category": "Vue.js",
+    "title": "Nuxt 3 初學者指南：30天從基礎到實踐",
+    "author": "創星",
+    "url": "https://ithelp.ithome.com.tw/users/20162805/ironman/6664"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "從Vue學React！不只要會用，還要真的懂～",
+    "author": "文科少女",
+    "url": "https://ithelp.ithome.com.tw/users/20130914/ironman/6367"
+  },
+  {
+    "tier": "佳作",
+    "category": "影片教學",
+    "title": "資安 Vtuber 語野飛陪你讀新聞學資安知識",
+    "author": "語野飛",
+    "url": "https://ithelp.ithome.com.tw/users/20152649/ironman/6871"
+  }
+]

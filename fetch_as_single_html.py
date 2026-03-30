@@ -1,5 +1,6 @@
 import base64
 import io
+import json
 import os
 import sys
 import hashlib
@@ -11,6 +12,7 @@ import shutil
 import concurrent.futures
 from urllib.parse import urljoin, urlparse
 from ebooklib import epub
+from simple_term_menu import TerminalMenu
 
 local_folder = 'local_resources'
 
@@ -136,7 +138,7 @@ def download_and_replace_resources(html_content, base_url):
                 if pil_img.mode in ('RGBA', 'P'):
                     pil_img = pil_img.convert('RGB')
                 buf = io.BytesIO()
-                pil_img.save(buf, format='JPEG', quality=85)
+                pil_img.save(buf, format='JPEG', quality=80)
                 img_data = buf.getvalue()
                 filename = hashlib.md5(img_data).hexdigest() + '.jpg'
                 filepath = os.path.join(local_folder, filename)
@@ -150,8 +152,8 @@ def download_and_replace_resources(html_content, base_url):
             filename = hashlib.md5(abs_url.encode()).hexdigest() + ext
             if not filename.endswith(('.jpg', '.png', '.gif', '.jpeg', '.svg', '.webp')):
                  filename += ".jpg" # Default fallback
-            # PNG will be converted to JPEG during download
-            html_filename = filename.replace('.png', '.jpg') if filename.endswith('.png') else filename
+            # PNG/GIF will be converted to JPEG during download
+            html_filename = filename.rsplit('.', 1)[0] + '.jpg' if filename.endswith(('.png', '.gif')) else filename
             resources_to_download[abs_url] = filename
             img['src'] = f"{local_folder}/{html_filename}"
 
@@ -161,14 +163,14 @@ def download_asset(url, filename, output_folder):
     content = get_resource(url)
     if content:
         path = os.path.join(output_folder, filename)
-        # Convert PNG to JPEG to reduce EPUB size
-        if filename.endswith('.png'):
+        # Convert PNG/GIF to JPEG to reduce EPUB size
+        if filename.endswith(('.png', '.gif')):
             try:
                 pil_img = Image.open(io.BytesIO(content))
                 if pil_img.mode in ('RGBA', 'P'):
                     pil_img = pil_img.convert('RGB')
                 buf = io.BytesIO()
-                pil_img.save(buf, format='JPEG', quality=85)
+                pil_img.save(buf, format='JPEG', quality=80)
                 content = buf.getvalue()
                 path = path.rsplit('.', 1)[0] + '.jpg'
             except Exception:
@@ -247,13 +249,68 @@ def generate_epub_file(title, output_file_name, articles_html, resource_folder):
     epub.write_epub(output_file, book)
     print("EPUB generated:", output_file)
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python3 fetch_as_single_html.py <URL(exclude page param)> [output_filename]")
+def load_rewards(year):
+    """Load rewards from local JSON file. Returns {tier: [entries]}."""
+    json_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"rewards_{year}.json")
+    if not os.path.exists(json_path):
+        return {}
+    with open(json_path, encoding='utf-8') as f:
+        data = json.load(f)
+    tiers = {}
+    for entry in data:
+        tiers.setdefault(entry['tier'], []).append(entry)
+    return tiers
+
+def interactive_mode():
+    years = list(range(2020, 2026))
+    idx = TerminalMenu([str(y) for y in years], title="Select a year:").show()
+    if idx is None:
         return
 
-    base_url = sys.argv[1]
-    output_filename = sys.argv[2] if len(sys.argv) > 2 else None
+    year = years[idx]
+    tiers = load_rewards(year)
+    if not tiers:
+        print(f"No data found. Make sure rewards_{year}.json exists.")
+        return
+
+    tier_names = list(tiers.keys())
+    idx = TerminalMenu(
+        [f"{name} ({len(tiers[name])} series)" for name in tier_names],
+        title="Select award tier:",
+    ).show()
+    if idx is None:
+        return
+    tier = tier_names[idx]
+
+    entries = tiers[tier]
+    idx = TerminalMenu(
+        [f"[{e['category']}] {e['title']}" for e in entries],
+        title=f"{tier}:",
+    ).show()
+    if idx is None:
+        return
+    selected = entries[idx]
+    series_title = selected['title']
+    series_url = selected['url']
+
+    default_name = re.sub(r'[^\w\s-]', '', series_title).strip().replace(' ', '_') + ".epub"
+    filename = input(f"Output filename [{default_name}]: ").strip()
+    if not filename:
+        filename = default_name
+    if not filename.endswith('.epub'):
+        filename += '.epub'
+
+    return series_url, filename
+
+def main():
+    if len(sys.argv) < 2:
+        result = interactive_mode()
+        if not result:
+            return
+        base_url, output_filename = result
+    else:
+        base_url = sys.argv[1]
+        output_filename = sys.argv[2] if len(sys.argv) > 2 else None
     
     # 1. Get Title
     print("Extracting Series Title...")

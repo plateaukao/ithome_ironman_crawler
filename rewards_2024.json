@@ -1,0 +1,534 @@
+[
+  {
+    "tier": "冠軍",
+    "category": "AI/ ML & Data",
+    "title": "調整AI超參數好煩躁？來試試看最佳化演算法吧！",
+    "author": "golucky_sir",
+    "url": "https://ithelp.ithome.com.tw/users/20151029/ironman/7610"
+  },
+  {
+    "tier": "冠軍",
+    "category": "DevOps",
+    "title": "應該是 Profilling 吧？",
+    "author": "雷N",
+    "url": "https://ithelp.ithome.com.tw/users/20104930/ironman/7138"
+  },
+  {
+    "tier": "冠軍",
+    "category": "生成式 AI",
+    "title": "Python 新手的 AI 之旅：從零開始打造屬於你的 AI / LLM 應用",
+    "author": "海狸大師",
+    "url": "https://ithelp.ithome.com.tw/users/20168885/ironman/7699"
+  },
+  {
+    "tier": "冠軍",
+    "category": "IT 管理",
+    "title": "葬送的軟體測試 - 不懂不想做是會出事",
+    "author": "kojenchieh",
+    "url": "https://ithelp.ithome.com.tw/users/20161809/ironman/7078"
+  },
+  {
+    "tier": "冠軍",
+    "category": "JavaScript",
+    "title": "可愛又迷人的 Web API",
+    "author": "MUKIwu",
+    "url": "https://ithelp.ithome.com.tw/users/20120631/ironman/7640"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Kubernetes",
+    "title": "從Software Developer的角度一起認識 Kubernetes (二)",
+    "author": "luciferstut",
+    "url": "https://ithelp.ithome.com.tw/users/20147637/ironman/7525"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Mobile Development",
+    "title": "Flutter 開發實戰 - 30 天逃離新手村",
+    "author": "andyyu0920",
+    "url": "https://ithelp.ithome.com.tw/users/20059915/ironman/7066"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Modern Web",
+    "title": "為你自己寫 Vue Component",
+    "author": "Alex Liu",
+    "url": "https://ithelp.ithome.com.tw/users/20120484/ironman/7597"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Odoo",
+    "title": "利用【AI】工具，聰明進行 Odoo 程式開發",
+    "author": "kulius Odoo 顧問及客製",
+    "url": "https://ithelp.ithome.com.tw/users/20102255/ironman/7473"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Python",
+    "title": "為你自己讀 CPython 原始碼",
+    "author": "高見龍",
+    "url": "https://ithelp.ithome.com.tw/users/20065770/ironman/7541"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Security",
+    "title": "Flipper Zero 宇宙最強攻略：30 天帶你從入門到入坑",
+    "author": "Kazma",
+    "url": "https://ithelp.ithome.com.tw/users/20168875/ironman/7849"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Software Development",
+    "title": "做一支專屬自己學校的課程評價 LINE Bot 吧！",
+    "author": "MDChain",
+    "url": "https://ithelp.ithome.com.tw/users/20151510/ironman/7771"
+  },
+  {
+    "tier": "冠軍",
+    "category": "影片教學",
+    "title": "我數學就爛要怎麼來學DNN模型安全",
+    "author": "aeifkz",
+    "url": "https://ithelp.ithome.com.tw/users/20148308/ironman/7273"
+  },
+  {
+    "tier": "優選",
+    "category": "DevOps",
+    "title": "Grafana Zero to Hero",
+    "author": "Blueswen",
+    "url": "https://ithelp.ithome.com.tw/users/20162175/ironman/7185"
+  },
+  {
+    "tier": "優選",
+    "category": "Software Development",
+    "title": "用 NestJS 闖蕩微服務！",
+    "author": "HAO",
+    "url": "https://ithelp.ithome.com.tw/users/20119338/ironman/7743"
+  },
+  {
+    "tier": "優選",
+    "category": "Software Development",
+    "title": "Java工程師的報表入門與實作",
+    "author": "JM",
+    "url": "https://ithelp.ithome.com.tw/users/20169094/ironman/7601"
+  },
+  {
+    "tier": "優選",
+    "category": "Mobile Development",
+    "title": "Swift iOS UIKit 初學者系列：從零開始開發互動式應用",
+    "author": "Jason Hung",
+    "url": "https://ithelp.ithome.com.tw/users/20120243/ironman/7791"
+  },
+  {
+    "tier": "優選",
+    "category": "Python",
+    "title": "眾裏尋它：Python表格利器Great Tables",
+    "author": "Jerry Wu",
+    "url": "https://ithelp.ithome.com.tw/users/20152192/ironman/7864"
+  },
+  {
+    "tier": "優選",
+    "category": "Python",
+    "title": "Django 忍法帖——Django Ninja 入門指南",
+    "author": "Kyo Huang",
+    "url": "https://ithelp.ithome.com.tw/users/20167825/ironman/7451"
+  },
+  {
+    "tier": "優選",
+    "category": "JavaScript",
+    "title": "30天的 JavaScript 設計模式之旅",
+    "author": "Monica",
+    "url": "https://ithelp.ithome.com.tw/users/20168201/ironman/7803"
+  },
+  {
+    "tier": "優選",
+    "category": "Security",
+    "title": "「後量子密碼學」- 未來資訊安全的基礎",
+    "author": "cesare381",
+    "url": "https://ithelp.ithome.com.tw/users/20168745/ironman/7741"
+  },
+  {
+    "tier": "優選",
+    "category": "生成式 AI",
+    "title": "2024 年用 LangGraph 從零開始實現 Agentic AI System",
+    "author": "hengshiousheu",
+    "url": "https://ithelp.ithome.com.tw/users/20161074/ironman/7469"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "Dive into CSS Challenge：從問題到解決方案的實踐之旅",
+    "author": "hitomiyang",
+    "url": "https://ithelp.ithome.com.tw/users/20169403/ironman/7779"
+  },
+  {
+    "tier": "優選",
+    "category": "IT 管理",
+    "title": "Backstage : 打造企業內部開發者整合平台",
+    "author": "jincoco88912",
+    "url": "https://ithelp.ithome.com.tw/users/20128232/ironman/7652"
+  },
+  {
+    "tier": "優選",
+    "category": "AI/ ML & Data",
+    "title": "猴子也能懂的電腦對局 : 30天打造自己的對局AI",
+    "author": "marsgoat",
+    "url": "https://ithelp.ithome.com.tw/users/20169302/ironman/7684"
+  },
+  {
+    "tier": "優選",
+    "category": "Kubernetes",
+    "title": "入門 Kubernetes 到考取 CKA 證照",
+    "author": "michael_chen",
+    "url": "https://ithelp.ithome.com.tw/users/20168692/ironman/7376"
+  },
+  {
+    "tier": "優選",
+    "category": "DevOps",
+    "title": "後 Grafana 時代的自我修養",
+    "author": "mikehsu0618",
+    "url": "https://ithelp.ithome.com.tw/users/20149562/ironman/7716"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "與 AI 一起開發 Side Project 吧！",
+    "author": "ms0223900",
+    "url": "https://ithelp.ithome.com.tw/users/20168308/ironman/7689"
+  },
+  {
+    "tier": "優選",
+    "category": "影片教學",
+    "title": "給初學者的 linux 命令列介面漫談",
+    "author": "tjwei",
+    "url": "https://ithelp.ithome.com.tw/users/20152654/ironman/7703"
+  },
+  {
+    "tier": "優選",
+    "category": "AI/ ML & Data",
+    "title": "打開就會 AI 與數據分析的投資理財術",
+    "author": "zivzhong",
+    "url": "https://ithelp.ithome.com.tw/users/20120549/ironman/8092"
+  },
+  {
+    "tier": "優選",
+    "category": "Mobile Development",
+    "title": "用 SwiftUI 掌控家庭日用品庫存",
+    "author": "凌凌",
+    "url": "https://ithelp.ithome.com.tw/users/20168462/ironman/7231"
+  },
+  {
+    "tier": "優選",
+    "category": "生成式 AI",
+    "title": "初探 Langchain 與 LLM：打造簡易問診機器人",
+    "author": "熊熊工程師",
+    "url": "https://ithelp.ithome.com.tw/users/20144024/ironman/7159"
+  },
+  {
+    "tier": "優選",
+    "category": "Odoo",
+    "title": "30天就算 0 基礎，也能使用 GenAI 創造簡單的 Odoo 模組應用",
+    "author": "阿寬 | Odoo Community Taiwan",
+    "url": "https://ithelp.ithome.com.tw/users/20163326/ironman/8011"
+  },
+  {
+    "tier": "佳作",
+    "category": "IT 管理",
+    "title": "30天打造AI驅動企業：Copilot整合策略與實踐指南",
+    "author": "Anthony",
+    "url": "https://ithelp.ithome.com.tw/users/20141298/ironman/7461"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "從 SwiftUI 到  Apple Vision Pro - SwiftUI 從零開始",
+    "author": "JK 程式誌",
+    "url": "https://ithelp.ithome.com.tw/users/20162607/ironman/7073"
+  },
+  {
+    "tier": "佳作",
+    "category": "DevOps",
+    "title": "建立應用程式 UI 自動化測試 - 以 Robot Framework 為例",
+    "author": "Max",
+    "url": "https://ithelp.ithome.com.tw/users/20168859/ironman/7650"
+  },
+  {
+    "tier": "佳作",
+    "category": "JavaScript",
+    "title": "Vue.js學習中的細節陷阱：30天自我學習指南",
+    "author": "Rafael",
+    "url": "https://ithelp.ithome.com.tw/users/20145251/ironman/7851"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI/ ML & Data",
+    "title": "資料與程式碼的交鋒 - Data Engineer 與合作夥伴的協奏曲",
+    "author": "Shu-Ting | 資料科學漂流者",
+    "url": "https://ithelp.ithome.com.tw/users/20168816/ironman/7575"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "我的 Android 工具箱",
+    "author": "YR",
+    "url": "https://ithelp.ithome.com.tw/users/20130547/ironman/7131"
+  },
+  {
+    "tier": "佳作",
+    "category": "Python",
+    "title": "30 天學會用 Python pandas 和 openpyxl 處理 Excel —— 成為用 Python 處理 Excel 檔案的高手",
+    "author": "april",
+    "url": "https://ithelp.ithome.com.tw/users/20168024/ironman/7374"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI/ ML & Data",
+    "title": "從零開始學AI：數學基礎與程式碼撰寫全攻略",
+    "author": "austin70915",
+    "url": "https://ithelp.ithome.com.tw/users/20152236/ironman/7467"
+  },
+  {
+    "tier": "佳作",
+    "category": "Python",
+    "title": "用 Python 打造你的 Discord BOT",
+    "author": "ck642509",
+    "url": "https://ithelp.ithome.com.tw/users/20162280/ironman/7781"
+  },
+  {
+    "tier": "佳作",
+    "category": "IT 管理",
+    "title": "自動化你的每一天 - 流程自動化 - Make.com 工作流程自動化",
+    "author": "gordonhsu",
+    "url": "https://ithelp.ithome.com.tw/users/20169163/ironman/7619"
+  },
+  {
+    "tier": "佳作",
+    "category": "影片教學",
+    "title": "淺入淺出 EVM Object Format",
+    "author": "hydai",
+    "url": "https://ithelp.ithome.com.tw/users/20083367/ironman/8062"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "p5.js 的環形藝術",
+    "author": "shnovaj30101",
+    "url": "https://ithelp.ithome.com.tw/users/20107274/ironman/7926"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "論前端工程師如何靠 Grafana 吃飯：從 Grafana App 到前端可觀測性",
+    "author": "ysl0628",
+    "url": "https://ithelp.ithome.com.tw/users/20152073/ironman/7713"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI/ ML & Data",
+    "title": "一個Kaggle金牌解法是如何誕生的？跟隨Kaggle NLP競賽高手的討論，探索解題脈絡",
+    "author": "壓縮甜",
+    "url": "https://ithelp.ithome.com.tw/users/20152668/ironman/8010"
+  },
+  {
+    "tier": "佳作",
+    "category": "JavaScript",
+    "title": "免安裝！一起用 JS 來控制開源的 NFC 讀卡機變色龍吧！",
+    "author": "戴均民",
+    "url": "https://ithelp.ithome.com.tw/users/20077241/ironman/7422"
+  },
+  {
+    "tier": "佳作",
+    "category": "生成式 AI",
+    "title": "Local LLM infra & Inference 一部曲",
+    "author": "母湯小精靈",
+    "url": "https://ithelp.ithome.com.tw/users/20168115/ironman/7508"
+  },
+  {
+    "tier": "佳作",
+    "category": "DevOps",
+    "title": "看好了 GitHub Action，我只示範一次。",
+    "author": "毛哥EM",
+    "url": "https://ithelp.ithome.com.tw/users/20139821/ironman/7503"
+  },
+  {
+    "tier": "佳作",
+    "category": "Security",
+    "title": "從0開始的打Pwn教學",
+    "author": "肉鬆",
+    "url": "https://ithelp.ithome.com.tw/users/20169016/ironman/7809"
+  },
+  {
+    "tier": "佳作",
+    "category": "AI/ ML & Data",
+    "title": "資料決策時代：從零開始打造公司數據引擎與決策文化",
+    "author": "郭家良",
+    "url": "https://ithelp.ithome.com.tw/users/20114297/ironman/7506"
+  },
+  {
+    "tier": "佳作",
+    "category": "Security",
+    "title": "資安這條路：系統化學習藍隊技術",
+    "author": "飛飛",
+    "url": "https://ithelp.ithome.com.tw/users/20108446/ironman/7868"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "一個好的系統之好維護基本篇 ( 馬克版 )",
+    "author": "馬克",
+    "url": "https://ithelp.ithome.com.tw/users/20089358/ironman/7994"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-SideProject30",
+    "title": "房東不給養鸚鵡 - 那就用 Nuxt + Express + MongoDB 30 天寫一個全端鸚鵡專案",
+    "author": "2魚",
+    "url": "https://ithelp.ithome.com.tw/users/20159686/ironman/7564"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-刷題不只是刷題",
+    "title": "30 天克服前端面試",
+    "author": "Ashley",
+    "url": "https://ithelp.ithome.com.tw/users/20162496/ironman/7698"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-IT 人自學之術",
+    "title": "從0到1的攻擊手自學之旅",
+    "author": "Finley",
+    "url": "https://ithelp.ithome.com.tw/users/20165500/ironman/7661"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-微軟Windows 11 Pro",
+    "title": "跟上新世代的隊伍 Windows 11 的新功能與安全性",
+    "author": "John醬",
+    "url": "https://ithelp.ithome.com.tw/users/20141165/ironman/8118"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-我的證照是這樣攻略的",
+    "title": "工程師，我們也可以學習 PMP！",
+    "author": "Simon Allen",
+    "url": "https://ithelp.ithome.com.tw/users/20104221/ironman/7443"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-刷題不只是刷題",
+    "title": "TypeScript X Leetcode：精進演算法，掌握技術詞",
+    "author": "Sunny.Cat",
+    "url": "https://ithelp.ithome.com.tw/users/20124462/ironman/7429"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-SideProject30",
+    "title": "門外漢的嵌入式地獄",
+    "author": "TsaiiiY",
+    "url": "https://ithelp.ithome.com.tw/users/20146325/ironman/7163"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-IT 人自學之術",
+    "title": "成為資料記者: 一些嘗試",
+    "author": "alice10130",
+    "url": "https://ithelp.ithome.com.tw/users/20151873/ironman/7670"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-IT 人自學之術",
+    "title": "30天轉職馬拉松：從0到Offer的學習計畫",
+    "author": "diverwil1995",
+    "url": "https://ithelp.ithome.com.tw/users/20168586/ironman/7683"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-SideProject30",
+    "title": "讓演算法起舞：前端特效應用的探索之旅",
+    "author": "jerrythepotato",
+    "url": "https://ithelp.ithome.com.tw/users/20135197/ironman/7565"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-刷題不只是刷題",
+    "title": "FB 工程師推薦 精選企業Leetcode考題學習",
+    "author": "ktdaren",
+    "url": "https://ithelp.ithome.com.tw/users/20169413/ironman/7953"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-IT 人自學之術",
+    "title": "後端小白自學 Laravel",
+    "author": "kuku",
+    "url": "https://ithelp.ithome.com.tw/users/20158099/ironman/7600"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-IT 人的工作軟技能",
+    "title": "30天整頓職場",
+    "author": "nomoresekuhara",
+    "url": "https://ithelp.ithome.com.tw/users/20168339/ironman/7097"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-IT 人自學之術",
+    "title": "鱷魚帶我練習JavaScript之個人練功坊",
+    "author": "polikuj1",
+    "url": "https://ithelp.ithome.com.tw/users/20169174/ironman/7626"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-我的私藏工具箱",
+    "title": "作業系統的專武",
+    "author": "tsai_jemmy",
+    "url": "https://ithelp.ithome.com.tw/users/20119865/ironman/7396"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-刷題不只是刷題",
+    "title": "新手村預備，CTF 小菜雞跌跌撞撞的旅程",
+    "author": "wonwoo",
+    "url": "https://ithelp.ithome.com.tw/users/20169462/ironman/7899"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-刷題不只是刷題",
+    "title": "圖解LeetCode(入門篇)",
+    "author": "zaleyu",
+    "url": "https://ithelp.ithome.com.tw/users/20168306/ironman/7275"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-我的證照是這樣攻略的",
+    "title": "老闆，外帶一份 AWS Certified Data Engineer",
+    "author": "二坪山小弱砲",
+    "url": "https://ithelp.ithome.com.tw/users/20130149/ironman/7495"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-微軟Windows 11 Pro",
+    "title": "Windows 11 Pro 升級指南：從軟體開發工程師視角探索生產力極限",
+    "author": "傑瑞鼠鼠",
+    "url": "https://ithelp.ithome.com.tw/users/20169610/ironman/8103"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-刷題不只是刷題",
+    "title": "[30天LeetCode挑戰] 每天一點演算法，讓技巧融會貫通",
+    "author": "很懶欸",
+    "url": "https://ithelp.ithome.com.tw/users/20169428/ironman/7836"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-我的私藏工具箱",
+    "title": "量化求職法：用關鍵數據追蹤並優化求職策略，提升跨國求職成功率",
+    "author": "森林裡的園藝眼鏡",
+    "url": "https://ithelp.ithome.com.tw/users/20140087/ironman/7984"
+  },
+  {
+    "tier": "佛心分享",
+    "category": "佛心分享-SideProject30",
+    "title": "DeltaPathogen：國產雙人不對稱抽象棋「疫途」之桌遊 AI 實戰",
+    "author": "高魁良",
+    "url": "https://ithelp.ithome.com.tw/users/20103524/ironman/7405"
+  }
+]

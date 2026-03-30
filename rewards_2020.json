@@ -1,0 +1,422 @@
+[
+  {
+    "tier": "冠軍",
+    "category": "AI & Data",
+    "title": "深度學習裡的冰與火之歌 ： Tensorflow vs PyTorch",
+    "author": "Rene Wang",
+    "url": "https://ithelp.ithome.com.tw/users/20112126/ironman/2841"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Blockchain",
+    "title": "從0開始架構區塊鏈",
+    "author": "李耕銘",
+    "url": "https://ithelp.ithome.com.tw/users/20119982/ironman/2255"
+  },
+  {
+    "tier": "冠軍",
+    "category": "DevOps",
+    "title": "和艦長一起 30 天玩轉 GitLab",
+    "author": "陳正瑋",
+    "url": "https://ithelp.ithome.com.tw/users/20120986/ironman/2733"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Google Developers Machine Learning",
+    "title": "Towards Tensorflow 2.0",
+    "author": "Jyun-Ting Chen",
+    "url": "https://ithelp.ithome.com.tw/users/20119971/ironman/2254"
+  },
+  {
+    "tier": "冠軍",
+    "category": "IoT",
+    "title": "IoT沒那麼難！新手用JavaScript入門做自己的玩具～",
+    "author": "曾英綺",
+    "url": "https://ithelp.ithome.com.tw/users/20103130/ironman/2125"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Mobile Development",
+    "title": "從0開始，全方面自動化測試Android App",
+    "author": "陳冠榮",
+    "url": "https://ithelp.ithome.com.tw/users/20120975/ironman/2726"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Security",
+    "title": "麻瓜不敗!白魔法藍天煉金術",
+    "author": "葛明淞",
+    "url": "https://ithelp.ithome.com.tw/users/20025481/ironman/2178"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Software Development",
+    "title": "30天之從 0 至 1 盡可能的建立一個好的系統 (性能基礎篇)",
+    "author": "林建億",
+    "url": "https://ithelp.ithome.com.tw/users/20089358/ironman/2559"
+  },
+  {
+    "tier": "冠軍",
+    "category": "影片教學",
+    "title": "即將失傳的古老技藝 Vim",
+    "author": "高 見龍",
+    "url": "https://ithelp.ithome.com.tw/users/20065770/ironman/2866"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Modern Web",
+    "title": "讓 TypeScript 成為你全端開發的 ACE！",
+    "author": "黃俊鑫",
+    "url": "https://ithelp.ithome.com.tw/users/20120614/ironman/2685"
+  },
+  {
+    "tier": "冠軍",
+    "category": "Modern Web",
+    "title": "金魚都能懂的 CSS 選取器 - 金魚都能懂了你還怕學不會嗎",
+    "author": "Amos/李建杭",
+    "url": "https://ithelp.ithome.com.tw/users/20112550/ironman/2799"
+  },
+  {
+    "tier": "優選",
+    "category": "Security",
+    "title": "生活資安五四三！從生活周遭看風險與資訊安全～番外篇",
+    "author": "羅正漢",
+    "url": "https://ithelp.ithome.com.tw/users/20013608/ironman/2539"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "實踐無障礙網頁設計（Web Accessibility）",
+    "author": "林汶樺",
+    "url": "https://ithelp.ithome.com.tw/users/20108045/ironman/2454"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "使用 Modern Web 技術來打造 Chat App",
+    "author": "林承澤",
+    "url": "https://ithelp.ithome.com.tw/users/20103630/ironman/2798"
+  },
+  {
+    "tier": "優選",
+    "category": "DevOps",
+    "title": "其實我真的沒想過只是把服務丟上 kubernetes 就有這麼多問題只好來參加30天分享那些年我怎麼在 kubernetes 上踩雷各項服務",
+    "author": "張哲嘉",
+    "url": "https://ithelp.ithome.com.tw/users/20120327/ironman/2444"
+  },
+  {
+    "tier": "優選",
+    "category": "Software Development",
+    "title": "從LeetCode學演算法",
+    "author": "林志瑜",
+    "url": "https://ithelp.ithome.com.tw/users/20119871/ironman/2210"
+  },
+  {
+    "tier": "優選",
+    "category": "Mobile Development",
+    "title": "Flutter 程式設計入門實戰 30 天",
+    "author": "侯光燦",
+    "url": "https://ithelp.ithome.com.tw/users/20096484/ironman/2699"
+  },
+  {
+    "tier": "優選",
+    "category": "AI & Data",
+    "title": "爬蟲在手、資料我有 - 30 天 Scrapy 爬蟲實戰",
+    "author": "簡學群",
+    "url": "https://ithelp.ithome.com.tw/users/20107875/ironman/2209"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "JavaScript 原力覺醒 -  成為絕地武士之路",
+    "author": "蔡木景",
+    "url": "https://ithelp.ithome.com.tw/users/20106580/ironman/2503"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "使用 Laravel 打造 RESTful API",
+    "author": "王盛立",
+    "url": "https://ithelp.ithome.com.tw/users/20105865/ironman/2466"
+  },
+  {
+    "tier": "優選",
+    "category": "Software Development",
+    "title": "Think in Domain-Driven Design",
+    "author": "劉鳳軒",
+    "url": "https://ithelp.ithome.com.tw/users/20111997/ironman/2730"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "從LINE BOT到資料視覺化：賴田捕手",
+    "author": "饒孟桓",
+    "url": "https://ithelp.ithome.com.tw/users/20120178/ironman/2654"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "從 Hooks 開始，讓你的網頁 React 起來",
+    "author": "Po-Jung Chen",
+    "url": "https://ithelp.ithome.com.tw/users/20103315/ironman/2668"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "Angular 元件庫 NG-ZORRO 基礎入門",
+    "author": "唐杰",
+    "url": "https://ithelp.ithome.com.tw/users/20112829/ironman/2142"
+  },
+  {
+    "tier": "優選",
+    "category": "Modern Web",
+    "title": "VueJS 從前端到後端",
+    "author": "陳世偉",
+    "url": "https://ithelp.ithome.com.tw/users/20001433/ironman/2154"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "介面設計如何讓新手與專家都容易使用？",
+    "author": "余虹儀",
+    "url": "https://ithelp.ithome.com.tw/users/20121135/ironman/2911"
+  },
+  {
+    "tier": "佳作",
+    "category": "影片教學",
+    "title": "金魚都能懂的這個網頁畫面怎麼切 - 金魚都能懂了你還怕學不會嗎",
+    "author": "Amos/李建杭",
+    "url": "https://ithelp.ithome.com.tw/users/20112550/ironman/2623"
+  },
+  {
+    "tier": "佳作",
+    "category": "Google Developers Machine Learning",
+    "title": "How to Train Your Model 訓模高手：我的 Tensorflow 個人使用經驗系列文",
+    "author": "管韋傑／JasonKuan",
+    "url": "https://ithelp.ithome.com.tw/users/20107299/ironman/2237"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "透過 LeetCode 解救美少女工程師的演算法人生",
+    "author": "余鞣安",
+    "url": "https://ithelp.ithome.com.tw/users/20120643/ironman/2829"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "前端三十 - 成為更好的前端工程師",
+    "author": "朱信穎",
+    "url": "https://ithelp.ithome.com.tw/users/20111380/ironman/2635"
+  },
+  {
+    "tier": "佳作",
+    "category": "Blockchain",
+    "title": "區塊練起來-智能合約與DApp開發",
+    "author": "謝浩哲",
+    "url": "https://ithelp.ithome.com.tw/users/20119338/ironman/2150"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "分散式系統 - 在分散的世界中保持一致",
+    "author": "林展逸",
+    "url": "https://ithelp.ithome.com.tw/users/20121042/ironman/2792"
+  },
+  {
+    "tier": "佳作",
+    "category": "Security",
+    "title": "突破困境：資安開源工具應用",
+    "author": "Jason Cheng",
+    "url": "https://ithelp.ithome.com.tw/users/20118848/ironman/2682"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "Android 十全大補",
+    "author": "林俊廷",
+    "url": "https://ithelp.ithome.com.tw/users/20120419/ironman/2641"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "高效 Coding 術：Angular Schematics 實戰三十天",
+    "author": "陳志龍",
+    "url": "https://ithelp.ithome.com.tw/users/20090728/ironman/2149"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "iOS Developer Learning Android",
+    "author": "謝騰飛",
+    "url": "https://ithelp.ithome.com.tw/users/20117052/ironman/2191"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "一步步帶你了解 AWS & LINE API 並使用 Serverless 介接的各種應用",
+    "author": "Jia Yu Lin",
+    "url": "https://ithelp.ithome.com.tw/users/20111481/ironman/2475"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "「小孩才做選擇，我全都要。」小白也能輕鬆瞭解的 Vue.js 與 D3.js 。",
+    "author": "林奇璇",
+    "url": "https://ithelp.ithome.com.tw/users/20119062/ironman/2242"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "重新認識 CSS",
+    "author": "Titangene",
+    "url": "https://ithelp.ithome.com.tw/users/20117586/ironman/2617"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "試著把切版專案升級到 gulp4.0 吧",
+    "author": "邱繼緯",
+    "url": "https://ithelp.ithome.com.tw/users/20104132/ironman/2921"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "Flutter---Google推出的跨平台框架，Android、iOS一起搞定",
+    "author": "任祐呈",
+    "url": "https://ithelp.ithome.com.tw/users/20119550/ironman/2221"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "前端工程師的 Flutter 新手村挑戰",
+    "author": "郭千慧",
+    "url": "https://ithelp.ithome.com.tw/users/20121111/ironman/2861"
+  },
+  {
+    "tier": "佳作",
+    "category": "Security",
+    "title": "CTF 的三十道陰影",
+    "author": "鄭達群",
+    "url": "https://ithelp.ithome.com.tw/users/20121059/ironman/2810"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "Android TDD 測試驅動開發",
+    "author": "陳瑞忠",
+    "url": "https://ithelp.ithome.com.tw/users/20111896/ironman/2181"
+  },
+  {
+    "tier": "佳作",
+    "category": "Google Developers Machine Learning",
+    "title": "Machine Learning with TensorFlow on Google Cloud Platform",
+    "author": "白振鴻",
+    "url": "https://ithelp.ithome.com.tw/users/20120208/ironman/2380"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "用 Javascript 當個影像魔術師",
+    "author": "陳彥儒",
+    "url": "https://ithelp.ithome.com.tw/users/20121089/ironman/2838"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "技術在走，Vue.js 要有",
+    "author": "mangoSu",
+    "url": "https://ithelp.ithome.com.tw/users/20112158/ironman/2614"
+  },
+  {
+    "tier": "佳作",
+    "category": "Mobile Development",
+    "title": "Android × CI/CD  如何用基本的MVVM專案實現 CI/CD",
+    "author": "陳利益",
+    "url": "https://ithelp.ithome.com.tw/users/20120279/ironman/2417"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "寫給PHP開發者的30堂網路爬蟲開發",
+    "author": "李昀陞",
+    "url": "https://ithelp.ithome.com.tw/users/20103975/ironman/2903"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "菜鳥工程師必修的 30 堂溝通課",
+    "author": "廖洧杰",
+    "url": "https://ithelp.ithome.com.tw/users/20040221/ironman/2236"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "深入現代前端開發",
+    "author": "陳愷奕",
+    "url": "https://ithelp.ithome.com.tw/users/20103565/ironman/2527"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "🌊 進階學習 ADO.NET、Dapper、Entity Framework",
+    "author": "林暐翰",
+    "url": "https://ithelp.ithome.com.tw/users/20105988/ironman/2161"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "在 React 生態圈內打滾的一年 feat. TypeScript",
+    "author": "神 Q 超人",
+    "url": "https://ithelp.ithome.com.tw/users/20106935/ironman/2188"
+  },
+  {
+    "tier": "佳作",
+    "category": "Security",
+    "title": "改變歷史的加密訊息",
+    "author": "彭偉皓",
+    "url": "https://ithelp.ithome.com.tw/users/20111946/ironman/2582"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "成為 Modern PHPer",
+    "author": "紀冠宇",
+    "url": "https://ithelp.ithome.com.tw/users/20104201/ironman/2320"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "React.js  從 【0】 到【1】推坑計畫",
+    "author": "莫力全",
+    "url": "https://ithelp.ithome.com.tw/users/20113277/ironman/2212"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "慢慢帶你了解Flask",
+    "author": "岳彣",
+    "url": "https://ithelp.ithome.com.tw/users/20120116/ironman/2532"
+  },
+  {
+    "tier": "佳作",
+    "category": "Modern Web",
+    "title": "React + D3 的正確姿勢",
+    "author": "陳奕帆",
+    "url": "https://ithelp.ithome.com.tw/users/20111948/ironman/2837"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "到日本當軟體工程師的入門指南",
+    "author": "陳巧云",
+    "url": "https://ithelp.ithome.com.tw/users/20111777/ironman/2767"
+  },
+  {
+    "tier": "佳作",
+    "category": "Software Development",
+    "title": "入吾 Go 中：走訪 Go 語言內部實作",
+    "author": "高魁良",
+    "url": "https://ithelp.ithome.com.tw/users/20103524/ironman/2589"
+  }
+]
