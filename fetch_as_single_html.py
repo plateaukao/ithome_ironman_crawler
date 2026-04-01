@@ -13,6 +13,9 @@ import concurrent.futures
 from urllib.parse import urljoin, urlparse
 from ebooklib import epub
 from simple_term_menu import TerminalMenu
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name, guess_lexer, TextLexer
+from pygments.formatters import HtmlFormatter
 
 local_folder = 'local_resources'
 
@@ -21,6 +24,29 @@ session = requests.Session()
 adapter = requests.adapters.HTTPAdapter(pool_connections=100, pool_maxsize=100)
 session.mount('http://', adapter)
 session.mount('https://', adapter)
+
+PYGMENTS_FORMATTER = HtmlFormatter(noclasses=True, style='monokai')
+
+def highlight_code_blocks(soup):
+    """Apply Pygments syntax highlighting to <pre><code> blocks."""
+    for pre in soup.find_all('pre'):
+        code = pre.find('code')
+        if not code:
+            continue
+        # Extract language from class like "language-javascript!"
+        lang = None
+        for cls in code.get('class', []):
+            if cls.startswith('language-'):
+                lang = cls.replace('language-', '').rstrip('!')
+                break
+        raw_code = code.get_text()
+        try:
+            lexer = get_lexer_by_name(lang) if lang else guess_lexer(raw_code)
+        except Exception:
+            lexer = TextLexer()
+        highlighted = highlight(raw_code, lexer, PYGMENTS_FORMATTER)
+        new_tag = BeautifulSoup(highlighted, 'html.parser')
+        pre.replace_with(new_tag)
 
 HEADERS = {
     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
@@ -107,6 +133,9 @@ def process_article_content(title, url):
         for link_tag in content.find_all("link"):
             link_tag.decompose()
 
+        # Apply syntax highlighting to code blocks
+        highlight_code_blocks(content)
+
         content['style'] = 'padding-left: 0;'
         return title, str(content)
     
@@ -190,7 +219,11 @@ def generate_epub_file(title, output_file_name, articles_html, resource_folder):
         file_name="style/default.css",
         media_type="text/css",
         content=b"img { max-width: 100%; height: auto; }\n"
-                b".qa-header__title { page-break-before: always; }\n",
+                b".qa-header__title { page-break-before: always; }\n"
+                b"pre { background: #272822; color: #f8f8f2; padding: 1em;"
+                b" border-radius: 4px; overflow-x: auto; font-size: 0.85em; }\n"
+                b".highlight pre { background: #272822; color: #f8f8f2; padding: 1em;"
+                b" border-radius: 4px; overflow-x: auto; font-size: 0.85em; }\n",
     )
     book.add_item(style)
 
